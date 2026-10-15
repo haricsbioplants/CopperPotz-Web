@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Saffron & Stone modern dining restaurant">
+    <title>Reservations | Saffron &amp; Stone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="topline">Seasonal ingredients · Thoughtful cooking · Good company</div>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"><!-- <span class="brand-mark">S<span
+                        style="font-size:12px">&amp;</span>S</span><span><span class="brand-name">Saffron &amp;
+                        Stone</span><span class="brand-sub">Modern dining house</span></span> -->
+                        <img src="/Images/copper pot logo.png" alt="copper-pot"></a>
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" data-page="index.html">Home</a><a href="menu.html" data-page="menu.html">Menu</a><a
+                    href="about.html" data-page="about.html">Our story</a><a href="contact.html"
+                    data-page="contact.html">Contact</a><a class="btn" href="reservation.html"
+                    data-page="reservation.html">Reserve a table ↗</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-inner">
+                <p class="eyebrow">A seat at our table</p>
+                <h1>Let's make it<br>a lovely occasion.</h1>
+                <p>Send your preferred date, time and party details. We'll email the restaurant team and follow up to
+                    confirm availability.</p>
+            </div>
+        </section>
+        <section class="section cream">
+            <div class="inner split" style="align-items:start">
+                <div class="copy">
+                    <p class="eyebrow">Before you arrive</p>
+                    <h2>Planning your visit.</h2>
+                    <p>Whether it's a quiet dinner for two or a gathering with friends, share your preferences in the
+                        form. For large parties, special arrangements or urgent requests, please contact the restaurant
+                        directly.</p>
+                    <div class="info-list">
+                        <div class="info-row" style="color:var(--muted)"><b>⌖</b><span><strong>Address</strong><br>12
+                                Garden Lane, Your City<br><small>Sample address—replace before launch.</small></span>
+                        </div>
+                        <div class="info-row" style="color:var(--muted)"><b>◷</b><span><strong>Hours</strong><br>Daily ·
+                                12:00 PM–10:30 PM<br><small>Sample hours—please verify.</small></span></div>
+                    </div>
+                </div>
+                <form class="form-box" id="reservation-form">
+                    <h3 style="margin:0 0 22px;font-size:27px">Request a table</h3>
+                    <div class="form-grid">
+                        <div class="field"><label for="name">Your name *</label><input id="name" name="name"
+                                placeholder="Full name" autocomplete="name" maxlength="120" required></div>
+                        <div class="field"><label for="email">Email address *</label><input id="email" name="email"
+                                type="email" placeholder="you@example.com" autocomplete="email" maxlength="254"
+                                required></div>
+                        <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone"
+                                type="tel" placeholder="+91 98765 43210" autocomplete="tel" maxlength="40"></div>
+                        <div class="field"><label for="guests">Number of guests *</label><select id="guests"
+                                name="guests" required>
+                                <option value="">Select guests</option>
+                                <option>1 guest</option>
+                                <option>2 guests</option>
+                                <option>3 guests</option>
+                                <option>4 guests</option>
+                                <option>5 guests</option>
+                                <option>6 guests</option>
+                                <option>7+ guests</option>
+                            </select></div>
+                        <div class="field"><label for="date">Preferred date *</label><input id="date" name="date"
+                                type="date" required></div>
+                        <div class="field"><label for="time">Preferred time *</label><select id="time" name="time"
+                                required>
+                                <option value="">Select time</option>
+                                <option>12:00 PM</option>
+                                <option>12:30 PM</option>
+                                <option>1:00 PM</option>
+                                <option>1:30 PM</option>
+                                <option>2:00 PM</option>
+                                <option>6:00 PM</option>
+                                <option>6:30 PM</option>
+                                <option>7:00 PM</option>
+                                <option>7:30 PM</option>
+                                <option>8:00 PM</option>
+                                <option>8:30 PM</option>
+                                <option>9:00 PM</option>
+                                <option>9:30 PM</option>
+                            </select></div>
+                        <div class="field full"><label for="occasion">Occasion</label><select id="occasion"
+                                name="occasion">
+                                <option value="Just dining">Just dining</option>
+                                <option>Birthday</option>
+                                <option>Anniversary</option>
+                                <option>Business dinner</option>
+                                <option>Special celebration</option>
+                            </select></div>
+                        <div class="field full"><label for="message">Special requests (optional)</label><textarea
+                                id="message" name="message"
+                                placeholder="Dietary needs, seating preferences or anything else..."
+                                maxlength="3000"></textarea></div>
+                    </div><button class="btn" id="submit-button" type="submit"><span id="button-label">Send reservation
+                            request</span> ↗</button>
+                    <p id="status" role="status" aria-live="polite"></p>
+                    <p style="font-size:10px;color:#aeb8ad;line-height:1.6">This is a request only, not a confirmed
+                        reservation. The restaurant will contact you to confirm availability.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">S<span
+                            style="font-size:12px">&amp;</span>S</span><span><span class="brand-name"
+                            style="color:#fffdf7">Saffron &amp; Stone</span><span class="brand-sub"
+                            style="color:#aeb8ad">Modern dining house</span></span></a>
+                <p>Seasonal plates, thoughtful hospitality and a welcoming table for the moments worth sharing.</p>
+            </div>
+            <div class="footer-links"><a href="menu.html">Our menu</a><a href="about.html">Our story</a><a
+                    href="contact.html">Contact</a><a href="reservation.html">Reservations</a></div>
+        </div>
+        <div class="footer-bottom"><span>© <span id="year"></span> Saffron &amp; Stone. Demo website.</span><span>Made
+                for good food and good company.</span></div>
+    </footer>
+    <script src="site.js"></script>
+</body>
+
+</html>

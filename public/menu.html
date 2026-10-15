@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Saffron & Stone modern dining restaurant">
+    <title>Menu | Saffron &amp; Stone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="topline">Seasonal ingredients · Thoughtful cooking · Good company</div>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"><!-- <span class="brand-mark">S<span
+                        style="font-size:12px">&amp;</span>S</span><span><span class="brand-name">Saffron &amp;
+                        Stone</span><span class="brand-sub">Modern dining house</span></span> -->
+                        <img src="/Images/copper pot logo.png" alt="copper-pot"></a>
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" data-page="index.html">Home</a><a href="menu.html" data-page="menu.html">Menu</a><a
+                    href="about.html" data-page="about.html">Our story</a><a href="contact.html"
+                    data-page="contact.html">Contact</a><a class="btn" href="reservation.html"
+                    data-page="reservation.html">Reserve a table ↗</a>
+            </div>
+        </div>
+    </nav>
+    
+<main class="copper-menu">
+
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+        <div class="menu-hero-content">
+            <span class="menu-kicker">WELCOME TO COPPER POTZ</span>
+            <h1>Good food.<br><em>Great moments.</em></h1>
+            <p>
+                Discover delicious flavours, comforting favourites
+                and dishes made to bring everyone together.
+            </p>
+            <a href="#menu-categories" class="menu-hero-btn">
+                Explore Our Menu ↓
+            </a>
+        </div>
+        <div class="menu-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85"
+                alt="Beautiful restaurant dining experience">
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="menu-category-nav" id="menu-categories">
+        <p class="menu-kicker">EXPLORE THE FLAVOURS</p>
+        <h2>Something delicious for everyone.</h2>
+
+        <div class="menu-category-links">
+            <a href="#starters">Starters</a>
+            <a href="#soups">Soups</a>
+            <a href="#veg">Vegetarian</a>
+            <a href="#nonveg">Non-Vegetarian</a>
+            <a href="#rice">Rice & Biryani</a>
+            <a href="#breads">Breads</a>
+            <a href="#desserts">Desserts</a>
+            <a href="#beverages">Beverages</a>
+        </div>
+    </section>
+
+    <!-- Starters -->
+    <section class="menu-category" id="starters">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">A DELICIOUS BEGINNING</span>
+                <h2>Starters & Appetizers</h2>
+                <p>Start your meal with something full of flavour.</p>
+            </div>
+            <span class="menu-section-number">01</span>
+        </div>
+
+        <div class="menu-food-grid">
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Crispy samosas" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Crispy Samosa</h3><strong>₹120</strong></div>
+                    <p>Golden pastry with a savoury spiced filling.</p>
+                    <span class="food-tag veg-tag">● Vegetarian</span>
+                </div>
+            </article>
+
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80" alt="Crispy fried chicken" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Crispy Chicken</h3><strong>₹260</strong></div>
+                    <p>Crunchy, seasoned chicken served hot.</p>
+                    <span class="food-tag nonveg-tag">● Non-vegetarian</span>
+                </div>
+            </article>
+
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=700&q=80" alt="Grilled kebab platter" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Grilled Kebab Platter</h3><strong>₹320</strong></div>
+                    <p>Smoky grilled bites with a flavourful dip.</p>
+                    <span class="food-tag nonveg-tag">● Non-vegetarian</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Soups -->
+    <section class="menu-category menu-category-alt" id="soups">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">WARM & COMFORTING</span>
+                <h2>Soups</h2>
+                <p>A warm, comforting start to your meal.</p>
+            </div>
+            <span class="menu-section-number">02</span>
+        </div>
+
+        <div class="menu-list">
+            <article><div><h3>Sweet Corn Soup</h3><p>Sweet corn in a light, comforting broth.</p></div><strong>₹140</strong></article>
+            <article><div><h3>Tomato Soup</h3><p>Rich tomato soup with aromatic herbs.</p></div><strong>₹130</strong></article>
+            <article><div><h3>Hot & Sour Soup</h3><p>A warming broth with vegetables and spices.</p></div><strong>₹150</strong></article>
+            <article><div><h3>Chicken Clear Soup</h3><p>A light chicken broth with fragrant seasoning.</p></div><strong>₹170</strong></article>
+        </div>
+    </section>
+
+    <!-- Vegetarian -->
+    <section class="menu-category" id="veg">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">FRESH & FLAVOURFUL</span>
+                <h2>Vegetarian Specials</h2>
+                <p>Colourful vegetables, warming spices and satisfying favourites.</p>
+            </div>
+            <span class="menu-section-number">03</span>
+        </div>
+
+        <div class="menu-food-grid">
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80" alt="Indian paneer curry" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Paneer Butter Masala</h3><strong>₹280</strong></div>
+                    <p>Paneer in a creamy tomato-based gravy.</p>
+                    <span class="food-tag veg-tag">● Vegetarian</span>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80" alt="Indian vegetable curry" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Mixed Vegetable Curry</h3><strong>₹230</strong></div>
+                    <p>Seasonal vegetables simmered with Indian spices.</p>
+                    <span class="food-tag veg-tag">● Vegetarian</span>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80" alt="Fresh colourful salad" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Garden Fresh Salad</h3><strong>₹180</strong></div>
+                    <p>Fresh greens and crisp vegetables with dressing.</p>
+                    <span class="food-tag veg-tag">● Vegetarian</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Non-vegetarian -->
+    <section class="menu-category menu-category-alt" id="nonveg">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">RICH & SATISFYING</span>
+                <h2>Non-Vegetarian Specials</h2>
+                <p>Hearty dishes prepared with aromatic spices.</p>
+            </div>
+            <span class="menu-section-number">04</span>
+        </div>
+
+        <div class="menu-food-grid">
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=700&q=80" alt="Chicken curry" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Chicken Curry</h3><strong>₹300</strong></div>
+                    <p>Tender chicken in a fragrant spiced gravy.</p>
+                    <span class="food-tag nonveg-tag">● Non-vegetarian</span>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=700&q=80" alt="Grilled chicken kebabs" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Chicken Tikka</h3><strong>₹320</strong></div>
+                    <p>Marinated chicken grilled until tender.</p>
+                    <span class="food-tag nonveg-tag">● Non-vegetarian</span>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80" alt="Traditional Indian curry" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Chef's Chicken Special</h3><strong>₹340</strong></div>
+                    <p>A hearty house-style chicken preparation.</p>
+                    <span class="food-tag nonveg-tag">● Non-vegetarian</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Rice and Biryani -->
+    <section class="menu-category" id="rice">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">AROMATIC & DELICIOUS</span>
+                <h2>Rice & Biryani</h2>
+                <p>Fragrant rice dishes for a satisfying meal.</p>
+            </div>
+            <span class="menu-section-number">05</span>
+        </div>
+
+        <div class="menu-list">
+            <article><div><h3>Vegetable Biryani</h3><p>Fragrant rice with vegetables and aromatic spices.</p></div><strong>₹220</strong></article>
+            <article><div><h3>Chicken Biryani</h3><p>Seasoned rice layered with flavourful chicken.</p></div><strong>₹300</strong></article>
+            <article><div><h3>Egg Fried Rice</h3><p>Wok-tossed rice with egg and vegetables.</p></div><strong>₹220</strong></article>
+            <article><div><h3>Chicken Fried Rice</h3><p>Wok-tossed rice with chicken and seasoning.</p></div><strong>₹260</strong></article>
+            <article><div><h3>Steamed Rice</h3><p>Simple, fluffy rice to accompany your curry.</p></div><strong>₹100</strong></article>
+            <article><div><h3>Jeera Rice</h3><p>Fragrant rice seasoned with cumin.</p></div><strong>₹160</strong></article>
+        </div>
+    </section>
+
+    <!-- Breads -->
+    <section class="menu-category menu-category-alt" id="breads">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">FRESH FROM THE KITCHEN</span>
+                <h2>Breads & Accompaniments</h2>
+                <p>The perfect partners for your favourite curry.</p>
+            </div>
+            <span class="menu-section-number">06</span>
+        </div>
+
+        <div class="menu-list">
+            <article><div><h3>Butter Naan</h3><p>Soft flatbread finished with butter.</p></div><strong>₹60</strong></article>
+            <article><div><h3>Plain Naan</h3><p>Freshly prepared soft flatbread.</p></div><strong>₹50</strong></article>
+            <article><div><h3>Tandoori Roti</h3><p>Traditional flatbread with a lightly toasted finish.</p></div><strong>₹40</strong></article>
+            <article><div><h3>Garlic Naan</h3><p>Naan topped with fragrant garlic.</p></div><strong>₹70</strong></article>
+        </div>
+    </section>
+
+    <!-- Desserts -->
+    <section class="menu-category" id="desserts">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">A SWEET FINISH</span>
+                <h2>Desserts</h2>
+                <p>End your meal on a delicious note.</p>
+            </div>
+            <span class="menu-section-number">07</span>
+        </div>
+
+        <div class="menu-food-grid">
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80" alt="Ice cream dessert" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Ice Cream</h3><strong>₹100</strong></div>
+                    <p>A cool, creamy treat to finish your meal.</p>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Chocolate cake" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Chocolate Cake</h3><strong>₹160</strong></div>
+                    <p>Rich chocolate cake for a sweet indulgence.</p>
+                </div>
+            </article>
+            <article class="menu-food-card">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80" alt="Fresh fruit dessert" loading="lazy">
+                <div class="menu-food-info">
+                    <div class="menu-food-title"><h3>Fruit Dessert</h3><strong>₹140</strong></div>
+                    <p>A refreshing sweet treat with fruity flavours.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Beverages -->
+    <section class="menu-category menu-category-alt" id="beverages">
+        <div class="menu-category-heading">
+            <div>
+                <span class="menu-kicker">SIP & RELAX</span>
+                <h2>Beverages</h2>
+                <p>Refreshing drinks to accompany every bite.</p>
+            </div>
+            <span class="menu-section-number">08</span>
+        </div>
+
+        <div class="menu-list">
+            <article><div><h3>Fresh Lime Soda</h3><p>A refreshing lime drink, sweet or salted.</p></div><strong>₹90</strong></article>
+            <article><div><h3>Fresh Juice</h3><p>Ask about the available seasonal fruit options.</p></div><strong>₹120</strong></article>
+            <article><div><h3>Cold Coffee</h3><p>Chilled coffee with a creamy finish.</p></div><strong>₹140</strong></article>
+            <article><div><h3>Tea or Coffee</h3><p>A comforting hot beverage.</p></div><strong>₹60</strong></article>
+            <article><div><h3>Soft Drinks</h3><p>A chilled drink to refresh your day.</p></div><strong>₹70</strong></article>
+            <article><div><h3>Mineral Water</h3><p>Served chilled on request.</p></div><strong>₹40</strong></article>
+        </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section class="copper-menu-cta">
+        <span class="menu-kicker">YOUR TABLE AWAITS</span>
+        <h2>Bring your appetite.<br><em>We'll take care of the rest.</em></h2>
+        <p>Gather your favourite people and enjoy a meal at Copper Potz.</p>
+        <a href="reservation.html" class="menu-hero-btn">Reserve a Table ↗</a>
+    </section>
+
+    <div class="menu-disclaimer">
+        Sample menu for website layout. Please confirm actual dishes, prices,
+        availability and dietary information with Copper Potz before publishing.
+    </div>
+</main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">S<span
+                            style="font-size:12px">&amp;</span>S</span><span><span class="brand-name"
+                            style="color:#fffdf7">Saffron &amp; Stone</span><span class="brand-sub"
+                            style="color:#aeb8ad">Modern dining house</span></span></a>
+                <p>Seasonal plates, thoughtful hospitality and a welcoming table for the moments worth sharing.</p>
+            </div>
+            <div class="footer-links"><a href="menu.html">Our menu</a><a href="about.html">Our story</a><a
+                    href="contact.html">Contact</a><a href="reservation.html">Reservations</a></div>
+        </div>
+        <div class="footer-bottom"><span>© <span id="year"></span> Saffron &amp; Stone. Demo website.</span><span>Made
+                for good food and good company.</span></div>
+    </footer>
+    <script src="site.js"></script>
+</body>
+
+</html>
