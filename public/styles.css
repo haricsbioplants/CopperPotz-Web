@@ -678,7 +678,7 @@ h3 {
     box-shadow: 0 14px 35px #263a2d15;
 }
 
-.copper-hall-card > img {
+.copper-hall-card>img {
     display: block;
     width: 100%;
     height: 245px;
@@ -834,7 +834,7 @@ h3 {
         grid-column: auto;
     }
 
-    .copper-hall-card > img {
+    .copper-hall-card>img {
         height: 230px;
     }
 
@@ -1509,7 +1509,7 @@ textarea:focus {
 ========================================== */
 
 .hero.home-hero {
-    --hero-green:var(--forest);
+    --hero-green: var(--forest);
     --hero-cream: #fffdf7;
     --hero-copper: #d7ad70;
 
@@ -1525,11 +1525,9 @@ textarea:focus {
 
     overflow: hidden;
     background:
-        radial-gradient(
-            ellipse at 10% 85%,
+        radial-gradient(ellipse at 10% 85%,
             rgba(215, 173, 112, 0.09),
-            transparent 36%
-        ),
+            transparent 36%),
         var(--hero-green);
     color: var(--hero-cream);
 }
@@ -1685,7 +1683,7 @@ textarea:focus {
     border-radius: 180px 180px 7px 7px;
 }
 
-.home-hero .hero-image > img {
+.home-hero .hero-image>img {
     position: absolute;
     inset: 0;
 
@@ -1707,11 +1705,9 @@ textarea:focus {
     pointer-events: none;
 
     border-radius: inherit;
-    background: linear-gradient(
-        180deg,
-        transparent 55%,
-        rgba(15, 24, 18, 0.64) 100%
-    );
+    background: linear-gradient(180deg,
+            transparent 55%,
+            rgba(15, 24, 18, 0.64) 100%);
 }
 
 /* Floating circular stamp */
@@ -1790,7 +1786,7 @@ textarea:focus {
     color: #a87638;
 }
 
-.home-hero .image-note > div {
+.home-hero .image-note>div {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1802,7 +1798,7 @@ textarea:focus {
     font-weight: 600;
 }
 
-.home-hero .image-note > div > span {
+.home-hero .image-note>div>span {
     color: #716e64;
     font-size: 11px;
 }
@@ -1957,11 +1953,11 @@ textarea:focus {
 }
 
 /* Prevent text from extending beyond its note */
-#heroImageCarousel .image-note > div {
+#heroImageCarousel .image-note>div {
     min-width: 0;
 }
 
-#heroImageCarousel .image-note > div > span {
+#heroImageCarousel .image-note>div>span {
     overflow-wrap: anywhere;
 }
 
@@ -2123,7 +2119,7 @@ textarea:focus {
         font-size: 13px;
     }
 
-    .home-hero .image-note > div > span {
+    .home-hero .image-note>div>span {
         font-size: 10px;
     }
 
@@ -2644,8 +2640,8 @@ textarea:focus {
     background: transparent !important
 }
 
-.experience-copy{
-        padding: 10px;
+.experience-copy {
+    padding: 10px;
 }
 
 .footer-inner {
@@ -2858,7 +2854,6 @@ textarea:focus {
     --menu-gold: #c39457;
     --menu-cream: #f8f5ed;
     --menu-border: #e5dfd4;
-    color: var(--menu-cream);
 }
 
 .menu-hero {
@@ -2872,17 +2867,13 @@ textarea:focus {
     padding: 48px 5.5%;
     overflow: hidden;
     background:
-        radial-gradient(
-            ellipse at 0% 100%,
+        radial-gradient(ellipse at 0% 100%,
             #395641 0%,
-            transparent 42%
-        ),
-        linear-gradient(
-            120deg,
+            transparent 42%),
+        linear-gradient(120deg,
             var(--menu-green-dark),
             var(--menu-green) 60%,
-            #304c37
-        );
+            #304c37);
 }
 
 /* Decorative copper lines */
@@ -3009,7 +3000,7 @@ textarea:focus {
 }
 
 /* Description */
-.menu-hero-content > p {
+.menu-hero-content>p {
     max-width: 440px;
     margin: 0;
     color: #e0e6dd;
@@ -3083,7 +3074,7 @@ textarea:focus {
 }
 
 /* Main photo */
-.menu-hero-image > img {
+.menu-hero-image>img {
     position: relative;
     display: block;
     width: 100%;
@@ -3097,7 +3088,7 @@ textarea:focus {
     transition: transform .45s ease;
 }
 
-.menu-hero-image:hover > img {
+.menu-hero-image:hover>img {
     transform: scale(1.015);
 }
 
@@ -3166,7 +3157,7 @@ textarea:focus {
         letter-spacing: -1px;
     }
 
-    .menu-hero-image > img {
+    .menu-hero-image>img {
         height: 330px;
     }
 
@@ -3230,7 +3221,7 @@ textarea:focus {
         margin-bottom: 18px;
     }
 
-    .menu-hero-content > p {
+    .menu-hero-content>p {
         max-width: 460px;
         font-size: 13px;
         line-height: 1.85;
@@ -3250,7 +3241,7 @@ textarea:focus {
         margin: 0 5px 8px 0;
     }
 
-    .menu-hero-image > img {
+    .menu-hero-image>img {
         height: clamp(240px, 65vw, 350px);
         border-radius: 38% 8px 8px 38%;
         outline-offset: 4px;
@@ -3293,7 +3284,7 @@ textarea:focus {
         font-size: 37px;
     }
 
-    .menu-hero-image > img {
+    .menu-hero-image>img {
         height: 225px;
     }
 
@@ -3314,280 +3305,600 @@ textarea:focus {
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+
     .menu-hero-btn,
-    .menu-hero-image > img {
+    .menu-hero-image>img {
         transition: none;
     }
 
     .menu-hero-btn:hover,
-    .menu-hero-image:hover > img {
+    .menu-hero-image:hover>img {
         transform: none;
     }
 }
 
-/* Category links */
-/* Main menu page */
-.menu-page {
-    width: 100%;
-    overflow: hidden;
-    background: var(--menu-cream);
-    color: var(--menu-text);
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --cream: #f8f3e9;
+    --cream2: #eee2ce;
+    --green: #173b2e;
+    --green-dark: #0b2118;
+    --gold: #c99143;
+    --copper: #b65b08;
+    --text: #151711;
+    --muted: #68665f;
+    --line: #e6d8c2;
+    --white: #fffdf8
 }
 
-/* Category navigation */
-.menu-category-nav {
-    padding: 45px 5%;
-    text-align: center;
-    background: var(--menu-cream);
-    border-bottom: 1px solid var(--menu-border);
+* {
+    box-sizing: border-box
 }
 
-.menu-category-nav h2 {
-    margin: 0 0 14px;
-    color: var(--menu-green);
-    font: 600 clamp(27px, 3vw, 38px) 'Playfair Display', Georgia, serif;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 58px
 }
 
-.menu-category-nav > p {
-    margin: 0 auto 25px;
-    color: var(--menu-muted);
-    font-size: 14px;
-    line-height: 1.8;
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', Arial, sans-serif
 }
 
-.menu-category-links {
+img {
+    display: block;
+    max-width: 100%
+}
+
+a {
+    color: inherit
+}
+
+.menu-nav {
+    position: sticky;
+    top: 10%;
+    z-index: 50;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 1150px;
-    margin: 0 auto;
-}
-
-.menu-category-links a {
-    padding: 11px 16px;
-    border: 1px solid #dcd4c5;
-    border-radius: 30px;
-    color: var(--menu-green);
-    background: transparent;
-    text-decoration: none;
-    font-size: 12px;
-    transition: background .25s ease, color .25s ease;
-}
-
-.menu-category-links a:hover,
-.menu-category-links a:focus-visible {
-    color: var(--menu-white);
-    background: var(--menu-green);
-    border-color: var(--menu-green);
-}
-
-/* Every menu category */
-.menu-category {
-    padding: 65px 5%;
-    background: var(--menu-cream);
-    scroll-margin-top: 90px;
-}
-
-.menu-category-alt {
-    background: #f8f5ed;
-}
-
-/* Category heading, image and section number */
-.menu-category-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, .95fr) auto;
     align-items: center;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 38px;
+    justify-content: center;
+    gap: 3px;
+    min-height: 44px;
+    padding: 5px max(16px, calc((100% - 1260px)/2));
+    overflow-x: auto;
+    white-space: nowrap;
+    background: rgba(255, 253, 248, .98);
+    border-bottom: 1px solid #eadfce;
+    scrollbar-width: thin
+}
+
+.menu-nav a {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: .25px;
+    font-weight: 600
+}
+
+.menu-nav a:not(:first-child):after {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    margin-left: 12px;
+    border-right: 1px solid #e7d8c2
+}
+
+.menu-nav a:hover,
+.menu-nav a.active {
+    background: #d99b4b;
+    color: white
+}
+
+.menu-page {
+    overflow: hidden;
+    background: var(--cream)
+}
+
+.menu-category {
+    position: relative;
+    padding: 0 0 30px;
+    isolation: isolate;
+    scroll-margin-top: 56px
+}
+
+.menu-category:nth-of-type(even) {
+    background: #f3eadb
+}
+
+/* Full-width photographic category banner */
+.menu-category-heading {
+    position: relative;
+    display: grid;
+    grid-template-columns: 54px minmax(220px, .9fr) minmax(280px, 1.2fr);
+    align-items: center;
+    gap: 18px;
+    min-height: 205px;
+    padding: 25px max(34px, calc((100% - 1180px)/2));
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(249, 243, 231, .98) 0%, rgba(249, 243, 231, .94) 31%, rgba(249, 243, 231, .2) 58%, rgba(249, 243, 231, 0) 100%), var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
+    background-position: center;
+    background-size: cover;
+    border-bottom: 1px solid #e4d3b8
+}
+
+.menu-category-heading:before {
+    content: "❧";
+    position: absolute;
+    left: -27px;
+    top: 7px;
+    color: var(--gold);
+    font: 108px/1 Georgia, serif;
+    opacity: .6;
+    transform: rotate(-35deg);
+    pointer-events: none
 }
 
 .menu-heading-content {
+    position: relative;
+    z-index: 2;
     min-width: 0;
+    grid-column: 2
+}
+
+.menu-heading-content h2 {
+    margin: 0 0 7px;
+    color: #10130f;
+    font: 600 clamp(30px, 3.5vw, 44px)/1.1 'Playfair Display', Georgia, serif;
+    letter-spacing: -1.2px
+}
+
+.menu-heading-content p {
+    margin: 0;
+    max-width: 460px;
+    color: #36362f;
+    font-size: 12px;
+    line-height: 1.65
 }
 
 .menu-kicker {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: var(--menu-gold);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.menu-category-heading h2 {
-    margin: 0 0 12px;
-    color: var(--menu-green);
-    font: 600 clamp(30px, 3.5vw, 46px) 'Playfair Display', Georgia, serif;
-    line-height: 1.2;
-}
-
-.menu-category-heading p {
-    margin: 0;
-    color: var(--menu-muted);
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-/* One image per category */
-.menu-category-image {
     display: block;
-    width: 100%;
-    height: 220px;
+    margin-bottom: 8px;
+    color: var(--copper);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase
+}
+
+.menu-category-image {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 58%;
+    height: 100%;
     object-fit: cover;
-    object-position: center;
-    border-radius: 6px;
+    z-index: -1;
+    opacity: .99
 }
 
-/* Large section number */
 .menu-section-number {
-    color: #ece6da;
-    font: 600 clamp(42px, 5vw, 64px) 'Playfair Display', Georgia, serif;
-    line-height: 1;
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 1;
+    color: var(--gold);
+    font: 500 clamp(40px, 4.5vw, 58px)/1 'Playfair Display', Georgia, serif;
+    text-align: left
 }
 
-/* Subcategory blocks: Soups, Veg Starters, etc. */
+/* Dark photo banners for selected categories */
+#starters .menu-category-heading,
+#rice-biryani-breads .menu-category-heading,
+#beverages .menu-category-heading {
+    background: linear-gradient(90deg, rgba(8, 28, 20, .97) 0%, rgba(8, 28, 20, .9) 35%, rgba(8, 28, 20, .4) 62%, rgba(8, 28, 20, .04) 100%), var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
+    background-size: cover;
+    background-position: center
+}
+
+#starters .menu-heading-content h2,
+#rice-biryani-breads .menu-heading-content h2,
+#beverages .menu-heading-content h2,
+#starters .menu-heading-content p,
+#rice-biryani-breads .menu-heading-content p,
+#beverages .menu-heading-content p {
+    color: var(--white)
+}
+
+#starters .menu-kicker,
+#rice-biryani-breads .menu-kicker,
+#beverages .menu-kicker {
+    color: #e3b96f
+}
+
+/* Three featured dish cards */
+.featured-dishes {
+    position: relative;
+    z-index: 3;
+    width: min(1180px, calc(100% - 60px));
+    margin: -16px auto 8px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px
+}
+
+.featured-dish-card {
+    overflow: hidden;
+    background: #fffaf1;
+    border: 1px solid #eadbc5;
+    border-radius: 7px;
+    box-shadow: 0 5px 16px #4e3b2010
+}
+
+.featured-dish-card>img {
+    width: 100%;
+    height: 112px;
+    object-fit: cover
+}
+
+.featured-dish-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 8px;
+    align-items: center;
+    padding: 9px 12px 10px
+}
+
+.featured-dish-info h4 {
+    margin: 0;
+    font: 600 13px/1.35 'Playfair Display', Georgia, serif
+}
+
+.featured-dish-info strong {
+    color: var(--copper);
+    font: 600 16px/1.2 'Playfair Display', Georgia, serif;
+    white-space: nowrap
+}
+
+.featured-dish-info .food-tag {
+    grid-column: 1/-1
+}
+
+/* Category lists and small dish thumbnails */
 .menu-subcategory {
-    max-width: 1200px;
-    margin: 35px auto 45px;
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 18px 28px 0;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid
 }
 
-.menu-subcategory > h3 {
-    margin: 0 0 14px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--menu-gold);
-    color: var(--menu-green);
-    font: 600 clamp(20px, 2vw, 24px) 'Playfair Display', Georgia, serif;
+.menu-subcategory h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 6px;
+    padding: 0 0 9px;
+    border-bottom: 1px solid var(--gold);
+    color: var(--green);
+    font: 600 19px/1.3 'Playfair Display', Georgia, serif
 }
 
-/* Two-column menu list */
+.menu-subcategory h3:after {
+    content: "";
+    width: 40px;
+    border-top: 1px solid var(--gold)
+}
+
 .menu-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 42px;
-    max-width: 1200px;
-    margin: 0 auto;
+    column-gap: 28px
 }
 
-.menu-subcategory .menu-list {
-    max-width: none;
-}
-
-/* Individual dish row */
 .menu-list article {
-    display: flex;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    min-width: 0;
-    padding: 19px 0;
-    border-bottom: 1px solid var(--menu-border);
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #e9decc
 }
 
-.menu-list article > div {
-    min-width: 0;
+.dish-thumb {
+    width: 62px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: var(--cream2)
 }
 
-.menu-list article h3,
-.menu-list article h4 {
-    margin: 0 0 6px;
-    color: var(--menu-green);
-    font: 600 15px/1.6 'Playfair Display', Georgia, serif;
+.menu-list article>div {
+    min-width: 0
 }
 
-.menu-list article p {
-    margin: 0;
-    color: var(--menu-muted);
+.menu-list h4 {
+    margin: 0 0 3px;
+    color: var(--text);
     font-size: 12px;
-    line-height: 1.7;
-}
-
-/* Dish prices */
-.menu-list article > strong {
-    flex-shrink: 0;
-    color: var(--menu-gold);
-    font-size: 15px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-/* Vegetarian and non-vegetarian indicators */
-.food-tag {
-    display: inline-block;
-    margin-top: 6px;
-    font-size: 10px;
     font-weight: 600;
+    line-height: 1.35
+}
+
+.menu-list article>strong {
+    flex: 0 0 auto;
+    color: var(--copper);
+    font: 600 16px/1.2 'Playfair Display', Georgia, serif;
+    white-space: nowrap
+}
+
+.food-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    line-height: 1.3
 }
 
 .veg-tag {
-    color: #39834d;
+    color: #176c43
 }
 
 .nonveg-tag {
-    color: #b94a42;
+    color: #c9291d
 }
 
-/* Optional featured food cards */
-.menu-food-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.menu-food-card {
-    overflow: hidden;
-    background: var(--menu-white);
-    border: 1px solid #eee7db;
-    border-radius: 6px;
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.menu-food-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgb(38 62 46 / 9%);
-}
-
-.menu-food-card > img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.menu-food-info {
-    padding: 18px;
-}
-
-.menu-food-title {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.menu-food-title h3 {
+.menu-disclaimer {
     margin: 0;
-    color: var(--menu-green);
-    font: 600 17px 'Playfair Display', Georgia, serif;
+    padding: 24px 15px 32px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px
 }
 
-.menu-food-title strong {
-    flex-shrink: 0;
-    color: var(--menu-gold);
-    font-size: 14px;
-    white-space: nowrap;
+.view-all,
+.view-all-wrap {
+    display: none !important
 }
 
-.menu-food-info p {
-    color: var(--menu-muted);
-    font-size: 12px;
-    line-height: 1.8;
+@media(min-width:901px) {
+    .menu-category {
+        padding-bottom: 34px
+    }
+
+    .menu-category .menu-subcategory:nth-of-type(odd) {
+        background: transparent
+    }
 }
 
+@media(max-width:900px) {
+    .menu-nav {
+        justify-content: flex-start;
+        padding-inline: 12px
+    }
+
+    .menu-category-heading {
+        grid-template-columns: 45px minmax(0, 1fr) minmax(200px, .9fr);
+        gap: 12px;
+        min-height: 180px;
+        padding: 22px 22px
+    }
+
+    .menu-category-image {
+        width: 55%
+    }
+
+    .menu-subcategory {
+        padding-inline: 20px
+    }
+
+    .menu-list {
+        column-gap: 20px
+    }
+
+    .menu-list article {
+        grid-template-columns: 54px minmax(0, 1fr) auto;
+        gap: 8px
+    }
+
+    .dish-thumb {
+        width: 54px;
+        height: 42px
+    }
+
+    .featured-dishes {
+        width: calc(100% - 40px)
+    }
+
+    .featured-dish-card>img {
+        height: 95px
+    }
+}
+
+@media(max-width:600px) {
+    html {
+        scroll-padding-top: 52px
+    }
+
+    .menu-nav {
+        min-height: 42px;
+        gap: 2px;
+        padding: 5px 8px
+    }
+
+    .menu-nav a {
+        padding: 8px 9px;
+        font-size: 9px
+    }
+
+    .menu-nav a:not(:first-child):after {
+        margin-left: 7px
+    }
+
+    .menu-category {
+        padding-bottom: 20px
+    }
+
+    .menu-category-heading {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 8px;
+        min-height: 0;
+        padding: 24px 14px 22px;
+        background: linear-gradient(90deg, rgba(249, 243, 231, .97), rgba(249, 243, 231, .78)), var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
+        background-size: cover;
+        background-position: center
+    }
+
+    .menu-category-heading:before {
+        left: -35px;
+        font-size: 92px;
+        opacity: .42
+    }
+
+    .menu-category-image {
+        width: 100%;
+        opacity: 0
+    }
+
+    .menu-section-number {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 35px
+    }
+
+    .menu-heading-content {
+        grid-column: 2;
+        grid-row: 1
+    }
+
+    .menu-heading-content h2 {
+        font-size: clamp(25px, 7vw, 34px);
+        letter-spacing: -.7px
+    }
+
+    .menu-heading-content p {
+        font-size: 11px;
+        line-height: 1.5
+    }
+
+    .menu-kicker {
+        font-size: 8px;
+        letter-spacing: 1.3px
+    }
+
+    .featured-dishes {
+        width: calc(100% - 24px);
+        margin: -12px auto 4px;
+        gap: 7px
+    }
+
+    .featured-dish-card {
+        border-radius: 5px
+    }
+
+    .featured-dish-card>img {
+        height: 70px
+    }
+
+    .featured-dish-info {
+        padding: 7px 7px 8px;
+        gap: 3px
+    }
+
+    .featured-dish-info h4 {
+        font-size: 10px
+    }
+
+    .featured-dish-info strong {
+        font-size: 12px
+    }
+
+    .featured-dish-info .food-tag {
+        font-size: 8px
+    }
+
+    .menu-subcategory {
+        padding: 18px 14px 0
+    }
+
+    .menu-subcategory h3 {
+        font-size: 17px
+    }
+
+    .menu-list {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0
+    }
+
+    .menu-list article {
+        padding: 7px 0;
+        gap: 9px;
+        grid-template-columns: 52px minmax(0, 1fr) auto
+    }
+
+    .dish-thumb {
+        width: 52px;
+        height: 40px
+    }
+
+    .menu-list h4 {
+        font-size: 11px
+    }
+
+    .menu-list article>strong {
+        font-size: 15px
+    }
+
+    .food-tag {
+        font-size: 9px
+    }
+
+    #starters .menu-category-heading,
+    #rice-biryani-breads .menu-category-heading,
+    #beverages .menu-category-heading {
+        background: linear-gradient(90deg, rgba(8, 28, 20, .94), rgba(8, 28, 20, .66)), var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
+        background-size: cover
+    }
+}
+
+@media(max-width:360px) {
+    .menu-category-heading {
+        padding-inline: 11px
+    }
+
+    .menu-subcategory {
+        padding-inline: 11px
+    }
+
+    .featured-dish-info h4 {
+        font-size: 9px
+    }
+
+    .featured-dish-info strong {
+        font-size: 11px
+    }
+
+    .menu-list article {
+        grid-template-columns: 44px minmax(0, 1fr) auto;
+        gap: 7px
+    }
+
+    .dish-thumb {
+        width: 44px;
+        height: 36px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+}
 /* Bottom call-to-action */
 .copper-menu-cta {
     padding: 70px 20px;
@@ -3637,157 +3948,10 @@ textarea:focus {
     font-size: 11px;
     line-height: 1.7;
 }
-
-/* Tablet */
-@media (max-width: 900px) {
-    .menu-category {
-        padding: 50px 5%;
-    }
-
-    .menu-category-heading {
-        grid-template-columns: minmax(0, 1fr) minmax(220px, .8fr);
-        gap: 22px;
-    }
-
-    .menu-section-number {
-        display: none;
-    }
-
-    .menu-category-image {
-        height: 200px;
-    }
-
-    .menu-list {
-        column-gap: 28px;
-    }
-
-    .menu-food-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* Mobile */
 @media (max-width: 600px) {
-    .menu-category-nav {
-        padding: 35px 5%;
-    }
-
-    .menu-category-links {
-        gap: 8px;
-    }
-
-    .menu-category-links a {
-        padding: 9px 12px;
-        font-size: 11px;
-    }
-
-    .menu-category {
-        padding: 38px 5%;
-    }
-
-    .menu-category-heading {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        margin-bottom: 30px;
-    }
-
-    .menu-category-heading h2 {
-        font-size: 32px;
-    }
-
-    .menu-category-image {
-        height: 190px;
-    }
-
-    .menu-subcategory {
-        margin: 28px auto 35px;
-    }
-
-    .menu-subcategory > h3 {
-        font-size: 21px;
-    }
-
-    .menu-list {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-    }
-
-    .menu-list article {
-        padding: 16px 0;
-    }
-
-    .menu-list article h3,
-    .menu-list article h4 {
-        font-size: 14px;
-    }
-
-    .menu-list article > strong {
-        font-size: 14px;
-    }
-
-    .menu-food-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-food-card > img {
-        height: 230px;
-    }
-
-    .menu-food-info {
-        padding: 16px;
-    }
-
     .copper-menu-cta {
         padding: 48px 20px;
     }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    .menu-category-links a,
-    .menu-food-card {
-        transition: none;
-    }
-
-    .menu-food-card:hover {
-        transform: none;
-    }
-}
-.menu-section-number {
-    color: #e6dfd0;
-    font: 600 clamp(48px, 7vw, 85px) 'Playfair Display', serif;
-}
-
-.menu-food-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.menu-food-card {
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid #eee9df;
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.menu-food-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 35px #263e2e15;
-}
-
-.menu-food-card > img {
-    display: block;
-    width: 100%;
-    height: 225px;
-    object-fit: cover;
-    transition: transform .35s ease;
-}
-
-.menu-food-card:hover > img {
-    transform: scale(1.025);
 }
 
 
@@ -3881,10 +4045,8 @@ textarea:focus {
     color: #fffdf8;
     font-size: 15px;
     font-weight: 600;
-    background: linear-gradient(
-        transparent,
-        rgba(14, 25, 19, 0.88)
-    );
+    background: linear-gradient(transparent,
+            rgba(14, 25, 19, 0.88));
     opacity: 0.95;
 }
 
