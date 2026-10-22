@@ -196,192 +196,394 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".menu-nav a[href^='#']");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  // Map each dish name to its own image in public/Images/
+  // Individual dish image mappings
   const dishImages = {
-    // Soups & Salads
     // Soups
-"Chicken Coconut Pepper Soup": "Images/chicken-coconut-pepper-soup.jpg",
-"Chicken Curry Leaves Soup": "Images/chicken-curry-leaves-soup.jpg",
-"Coriander Chicken Soup": "Images/coriander-chicken-soup.webp",
-"Cream Of Chicken & Roasted Garlic": "Images/cream-chicken-roasted-garlic-soup.webp",
+    "Chicken Coconut Pepper Soup": "Images/chicken-coconut-pepper-soup.jpg",
+    "Chicken Curry Leaves Soup": "Images/chicken-curry-leaves-soup.jpg",
+    "Coriander Chicken Soup": "Images/coriander-chicken-soup.webp",
+    "Cream Of Chicken & Roasted Garlic": "Images/cream-chicken-roasted-garlic-soup.webp",
+    "Copper Potz Special Soup": "Images/copper-potz-special-soup.webp",
+    "Cream Of Mushroom Soup": "Images/mushroom-soup.webp",
+    "Cream Of Veg Soup": "Images/cream-of-veg-soup.webp",
+    "Lentil Soup": "Images/lentil-soup.webp",
+    "Tomato Soup": "Images/tomato-soup.webp",
+    "Veg Clear Soup": "Images/veg-clear-soup.webp",
+    "Veg Hot & Sour Soup": "Images/veg-hot-and-sour-soup.webp",
+    "Veg Lemon Coriander Soup": "Images/veg-lemon-coriander-soup.webp",
+    "Veg Manchow Soup": "Images/veg-manchow-soup.webp",
+    "Veg Sweet Corn Soup": "Images/veg-sweet-corn-soup.webp",
+    "Chicken Copper Potz Special Soup": "Images/chicken-copper-potz-special-soup.webp",
+    "Chicken French Onion Soup": "Images/chicken-french-onion-soup.webp",
+    "Chicken Hot & Sour Soup": "Images/chicken-hot-and-sour-soup.webp",
+    "Chicken Lemon Coriander Soup": "Images/chicken-lemon-coriander-soup.webp",
+    "Chicken Manchow Soup": "Images/chicken-manchow-soup.webp",
+    "Chicken Sweet Corn Soup": "Images/chicken-sweet-corn-soup.webp",
+    "Clear Chicken Soup": "Images/clear-chicken-soup.webp",
+    "Cream Of Chicken Soup": "Images/cream-of-chicken-soup.webp",
+    "Egg Drop Soup": "Images/egg-drop-soup.webp",
+    "Mutton Elumbu Charu": "Images/mutton-elumbu-charu.webp",
+    "Sea Food Soup": "Images/seafood-soup.webp",
+    "Tom Yum Soup": "Images/tom-yum-soup.webp",
 
-// Chinese Veg Soups
-"Copper Potz Special Soup": "Images/copper-potz-special-soup.webp",
-"Cream Of Mushroom Soup": "Images/mushroom-soup.webp",
-"Cream Of Veg Soup": "Images/cream-of-veg-soup.webp",
-"Lentil Soup": "Images/lentil-soup.webp",
-"Tomato Soup": "Images/tomato-soup.webp",
-"Veg Clear Soup": "Images/veg-clear-soup.webp",
-"Veg Hot & Sour Soup": "Images/veg-hot-and-sour-soup.webp",
-"Veg Lemon Coriander Soup": "Images/veg-lemon-coriander-soup.webp",
-"Veg Manchow Soup": "Images/veg-manchow-soup.webp",
-"Veg Sweet Corn Soup": "Images/veg-sweet-corn-soup.webp",
+    // Salads
+    "Chicken Ceaser Salad": "Images/chicken-ceaser-salad.webp",
+    "Chicken Caesar Salad": "Images/chicken-caesar-salad.jpg",
+    "Coleslaw Salad": "Images/coleslaw-salad.webp",
+    "Green Salad": "Images/green-salad.webp",
+    "Hawaiian Chicken Salad": "Images/hawaiian-chicken-salad.webp",
+    "Hawaiian Veg Salad": "Images/hawaiian-veg-salad.webp",
+    "Mexican Salad": "Images/mexican-salad.webp",
+    "Russian Salad": "Images/russian-salad.webp",
+    "Tandoori Chicken Salad": "Images/tandoori-chicken-salad.webp",
 
-// Chinese Non Veg Soup
-"Chicken Copper Potz Special Soup": "Images/chicken-copper-potz-special-soup.webp",
-"Chicken French Onion Soup": "Images/chicken-french-onion-soup.webp",
-"Chicken Hot & Sour Soup": "Images/chicken-hot-and-sour-soup.webp",
-"Chicken Lemon Coriander Soup": "Images/chicken-lemon-coriander-soup.webp",
-"Chicken Manchow Soup": "Images/chicken-manchow-soup.webp",
-"Chicken Sweet Corn Soup": "Images/chicken-sweet-corn-soup.webp",
-"Clear Chicken Soup": "Images/clear-chicken-soup.webp",
-"Cream Of Chicken Soup": "Images/cream-of-chicken-soup.webp",
-"Egg Drop Soup": "Images/egg-drop-soup.webp",
-"Mutton Elumbu Charu": "Images/mutton-elumbu-charu.webp",
-"Sea Food Soup": "Images/seafood-soup.webp",
-"Tom Yum Soup": "Images/tom-yum-soup.webp",
+    // Tandoori starters
+    "Chicken Cola Urundai": "Images/chicken-cola-urundai.webp",
+    "Fish Cola Urundai": "Images/fish-cola-urundai.webp",
+    "Mutton Cola Urundai": "Images/mutton-cola-urundai.webp",
+    "Paneer Achari Tikka": "Images/paneer-achari-tikka.webp",
+    "Paneer Malai Tikka": "Images/paneer-malai-tikka.webp",
+    "Paneer Tikka": "Images/paneer-tikka.webp",
+    "Tandoori Gobi": "Images/tandoori-gobi.webp",
+    "Tandoori Mushroom": "Images/tandoori-mushroom.webp",
+    "Veg Tikki": "Images/veg-tikki.webp",
+    "Achari Fish Tikka": "Images/achari-fish-tikka.webp",
+    "Afghani Chicken": "Images/afghani-chicken.webp",
+    "Ajwaini Fish Tikka": "Images/ajwaini-fish-tikka.webp",
+    "Chicken Cheese Sheek Kabab": "Images/chicken-cheese-sheek-kabab.webp",
+    "Chicken Seekh Kabab": "Images/chicken-seekh-kabab.webp",
+    "Chicken Tikka": "Images/chicken-tikka.webp",
+    "Fish Tikka": "Images/fish-tikka.webp",
+    "Haryali Kabab": "Images/haryali-kabab.webp",
+    "Kalimirchi Kabab": "Images/kalimirchi-kabab.webp",
+    "Lasooni Tikka": "Images/lasooni-tikka.webp",
+    "Malai Prawn": "Images/malai-prawn.webp",
+    "Malai Tikka": "Images/malai-tikka.webp",
+    "Mix Tandoori Non Veg Platter": "Images/mix-tandoori-non-veg-platter.webp",
+    "Murgh Malai Kabab": "Images/murgh-malai-kabab.webp",
+    "Mutton Cheese Seekh Kabab": "Images/mutton-cheese-seekh-kabab.webp",
+    "Mutton Seekh Kabab": "Images/mutton-seekh-kabab.webp",
+    "Prawn Tikka": "Images/prawn-tikka.webp",
+    "Resmi Kabab": "Images/resmi-kabab.webp",
+    "Tandoori Chicken": "Images/tandoori-chicken.webp",
+    "Tandoori Prawns": "Images/tandoori-prawns.webp",
+    "Zafrani Kabab": "Images/zafrani-kabab.webp",
 
-// Salad
-"Chicken Ceaser Salad": "Images/chicken-ceaser-salad.webp",
-"Coleslaw Salad": "Images/coleslaw-salad.webp",
-"Green Salad": "Images/green-salad.webp",
-"Hawaiian Chicken Salad": "Images/hawaiian-chicken-salad.webp",
-"Hawaiian Veg Salad": "Images/hawaiian-veg-salad.webp",
-"Mexican Salad": "Images/mexican-salad.webp",
-"Russian Salad": "Images/russian-salad.webp",
-"Tandoori Chicken Salad": "Images/tandoori-chicken-salad.webp",
+    // Chinese vegetarian starters
+    "Baby Corn 65": "Images/baby-corn-65.webp",
+    "Baby Corn Chilli": "Images/baby-corn-chilli.webp",
+    "Baby Corn Manchurian": "Images/baby-corn-manchurian.webp",
+    "Baby Corn Salt & Pepper": "Images/baby-corn-salt-pepper.webp",
+    "Cheese Balls Manchurian": "Images/cheese-balls-manchurian.webp",
+    "Dragon Paneer": "Images/dragon-paneer.webp",
+    "French Fries": "Images/french-fries.webp",
+    "Gobi Chilli": "Images/gobi-chilli.webp",
+    "Gobi Manchurian": "Images/gobi-manchurian.webp",
+    "Mushroom 65": "Images/mushroom-65.webp",
+    "Mushroom Chilli": "Images/mushroom-chilli.webp",
+    "Mushroom Manchurian": "Images/mushroom-manchurian.webp",
+    "Paneer 65": "Images/paneer-65.webp",
+    "Paneer Chilli": "Images/paneer-chilli.webp",
+    "Paneer Majestic": "Images/paneer-majestic.webp",
+    "Paneer Manchurian": "Images/paneer-manchurian.webp",
 
-    // Cola Urundai
-"Chicken Cola Urundai": "Images/chicken-cola-urundai.webp",
-"Fish Cola Urundai": "Images/fish-cola-urundai.webp",
-"Mutton Cola Urundai": "Images/mutton-cola-urundai.webp",
+    // Chinese non-vegetarian starters
+    "Chicken 65": "Images/chicken-65.webp",
+    "Chicken Lolipop ( 6pic )": "Images/chicken-lolipop.webp",
+    "Chicken Majestic": "Images/chicken-majestic.webp",
+    "Chicken Manchurian": "Images/chicken-manchurian.webp",
+    "Chicken Wings": "Images/chicken-wings.webp",
+    "Chicken Wings Chilli Garlic": "Images/chicken-wings-chilli-garlic.webp",
+    "Chilli Chiken": "Images/chilli-chiken.webp",
+    "Dragon Chicken": "Images/dragon-chicken.webp",
+    "Lemon Chicken": "Images/lemon-chicken.webp",
+    "Schezwan Wings": "Images/schezwan-wings.webp",
+    "American Chicken Chop Suey": "Images/american-chicken-chop-suey.webp",
+    "Chicken Pepper & Salt": "Images/chicken-pepper-salt.webp",
+    "Chinese Chicken Chop Suey": "Images/chinese-chicken-chop-suey.webp",
+    "Creamy Cheesy Chicken": "Images/creamy-cheesy-chicken.webp",
+    "Crispy Chicken": "Images/crispy-chicken.webp",
+    "Garlic Chicken": "Images/garlic-chicken.webp",
+    "Ginger Chicken": "Images/ginger-chicken.webp",
+    "Honey Chicken": "Images/honey-chicken.webp",
+    "Honey Chilli Chicken": "Images/honey-chilli-chicken.webp",
+    "Schezwan Chicken": "Images/schezwan-chicken.webp",
 
-// Tandoori Veg Starters
-"Paneer Achari Tikka": "Images/paneer-achari-tikka.webp",
-"Paneer Malai Tikka": "Images/paneer-malai-tikka.webp",
-"Paneer Tikka": "Images/paneer-tikka.webp",
-"Tandoori Gobi": "Images/tandoori-gobi.webp",
-"Tandoori Mushroom": "Images/tandoori-mushroom.webp",
-"Veg Tikki": "Images/veg-tikki.webp",
+    // Mutton, seafood and BBQ
+    "Chilli Mutton": "Images/chilli-mutton.webp",
+    "Lamp Roast": "Images/lamp-roast.webp",
+    "Schezwan Lamp": "Images/schezwan-lamp.webp",
+    "Apollo Fish": "Images/apollo-fish.webp",
+    "Chilli Fish": "Images/chilli-fish.webp",
+    "Chilli Garlic Prawns": "Images/chilli-garlic-prawns.webp",
+    "Fish Finger": "Images/fish-finger.webp",
+    "Fish Manchurian": "Images/fish-manchurian.webp",
+    "Ginger Prawn": "Images/ginger-prawn.webp",
+    "Lemon Fish": "Images/lemon-fish.webp",
+    "Schezwan Fish": "Images/schezwan-fish.webp",
+    "Afghani Bbq": "Images/afghani-bbq.webp",
+    "Al-Faham": "Images/al-faham.webp",
+    "Bbq Chicken": "Images/bbq-chicken.webp",
+    "Bbq Fish Mixed Jumbo Platters": "Images/bbq-fish-mixed-jumbo-platters.webp",
+    "Green Pepper Bbq": "Images/green-pepper-bbq.webp",
+    "Grill Chicken Full": "Images/grill-chicken-full.webp",
+    "Grill Chicken Half": "Images/grill-chicken-half.webp",
+    "Pepper Bbq": "Images/pepper-bbq.webp",
 
-// Tandoori Non Veg Starters
-"Achari Fish Tikka": "Images/achari-fish-tikka.webp",
-"Afghani Chicken": "Images/afghani-chicken.webp",
-"Ajwaini Fish Tikka": "Images/ajwaini-fish-tikka.webp",
-"Chicken Cheese Sheek Kabab": "Images/chicken-cheese-sheek-kabab.webp",
-"Chicken Seekh Kabab": "Images/chicken-seekh-kabab.webp",
-"Chicken Tikka": "Images/chicken-tikka.webp",
-"Fish Tikka": "Images/fish-tikka.webp",
-"Haryali Kabab": "Images/haryali-kabab.webp",
-"Kalimirchi Kabab": "Images/kalimirchi-kabab.webp",
-"Lasooni Tikka": "Images/lasooni-tikka.webp",
-"Malai Prawn": "Images/malai-prawn.webp",
-"Malai Tikka": "Images/malai-tikka.webp",
-"Mix Tandoori Non Veg Platter": "Images/mix-tandoori-non-veg-platter.webp",
-"Murgh Malai Kabab": "Images/murgh-malai-kabab.webp",
-"Mutton Cheese Seekh Kabab": "Images/mutton-cheese-seekh-kabab.webp",
-"Mutton Seekh Kabab": "Images/mutton-seekh-kabab.webp",
-"Prawn Tikka": "Images/prawn-tikka.webp",
-"Resmi Kabab": "Images/resmi-kabab.webp",
-"Tandoori Chicken": "Images/tandoori-chicken.webp",
-"Tandoori Prawns": "Images/tandoori-prawns.webp",
-"Zafrani Kabab": "Images/zafrani-kabab.webp",
-
-// Chinese Veg Starters
-"Baby Corn 65": "Images/baby-corn-65.webp",
-"Baby Corn Chilli": "Images/baby-corn-chilli.webp",
-"Baby Corn Manchurian": "Images/baby-corn-manchurian.webp",
-"Baby Corn Salt & Pepper": "Images/baby-corn-salt-pepper.webp",
-"Cheese Balls Manchurian": "Images/cheese-balls-manchurian.webp",
-"Dragon Paneer": "Images/dragon-paneer.webp",
-"French Fries": "Images/french-fries.webp",
-"Gobi Chilli": "Images/gobi-chilli.webp",
-"Gobi Manchurian": "Images/gobi-manchurian.webp",
-"Mushroom 65": "Images/mushroom-65.webp",
-"Mushroom Chilli": "Images/mushroom-chilli.webp",
-"Mushroom Manchurian": "Images/mushroom-manchurian.webp",
-"Paneer 65": "Images/paneer-65.webp",
-"Paneer Chilli": "Images/paneer-chilli.webp",
-"Paneer Majestic": "Images/paneer-majestic.webp",
-"Paneer Manchurian": "Images/paneer-manchurian.webp",
-
-// Chinese Non Veg Starters
-"Chicken 65": "Images/chicken-65.webp",
-"Chicken Lolipop ( 6pic )": "Images/chicken-lolipop.webp",
-"Chicken Majestic": "Images/chicken-majestic.webp",
-"Chicken Manchurian": "Images/chicken-manchurian.webp",
-"Chicken Wings": "Images/chicken-wings.webp",
-"Chicken Wings Chilli Garlic": "Images/chicken-wings-chilli-garlic.webp",
-"Chilli Chiken": "Images/chilli-chiken.webp",
-"Dragon Chicken": "Images/dragon-chicken.webp",
-"Lemon Chicken": "Images/lemon-chicken.webp",
-"Schezwan Wings": "Images/schezwan-wings.webp",
-
-// Special Chinese Non Veg Starters
-"American Chicken Chop Suey": "Images/american-chicken-chop-suey.webp",
-"Chicken Pepper & Salt": "Images/chicken-pepper-salt.webp",
-"Chinese Chicken Chop Suey": "Images/chinese-chicken-chop-suey.webp",
-"Creamy Cheesy Chicken": "Images/creamy-cheesy-chicken.webp",
-"Crispy Chicken": "Images/crispy-chicken.webp",
-"Garlic Chicken": "Images/garlic-chicken.webp",
-"Ginger Chicken": "Images/ginger-chicken.webp",
-"Honey Chicken": "Images/honey-chicken.webp",
-"Honey Chilli Chicken": "Images/honey-chilli-chicken.webp",
-"Schezwan Chicken": "Images/schezwan-chicken.webp",
-
-// Special Chinese Mutton Starters
-"Chilli Mutton": "Images/chilli-mutton.webp",
-"Lamp Roast": "Images/lamp-roast.webp",
-"Schezwan Lamp": "Images/schezwan-lamp.webp",
-
-// Sea Food Starters
-"Apollo Fish": "Images/apollo-fish.webp",
-"Chilli Fish": "Images/chilli-fish.webp",
-"Chilli Garlic Prawns": "Images/chilli-garlic-prawns.webp",
-"Fish Finger": "Images/fish-finger.webp",
-"Fish Manchurian": "Images/fish-manchurian.webp",
-"Ginger Prawn": "Images/ginger-prawn.webp",
-"Lemon Fish": "Images/lemon-fish.webp",
-"Schezwan Fish": "Images/schezwan-fish.webp",
-
-// BBQ Starters
-"Afghani Bbq": "Images/afghani-bbq.webp",
-"Al-Faham": "Images/al-faham.webp",
-"Bbq Chicken": "Images/bbq-chicken.webp",
-"Bbq Fish Mixed Jumbo Platters": "Images/bbq-fish-mixed-jumbo-platters.webp",
-"Green Pepper Bbq": "Images/green-pepper-bbq.webp",
-"Grill Chicken Full": "Images/grill-chicken-full.webp",
-"Grill Chicken Half": "Images/grill-chicken-half.webp",
-"Pepper Bbq": "Images/pepper-bbq.webp",
-
+    // Indian main course
     // Indian Main Course
-    "Malai Kofta": "Images/malai-kofta.jpg",
-    "Methi Chaman": "Images/methi-chaman.jpg",
-    "Paneer Lababdar": "Images/paneer-lababdar.jpg",
-    "Veg Diwani Handi": "Images/veg-diwani-handi.jpg",
-    "Veg Koffta": "Images/veg-kofta.jpg",
-    "Veg Kofta": "Images/veg-kofta.jpg",
-    "Paneer Khosfta": "Images/paneer-khofta.jpg",
-    "Paneer Khaofta": "Images/paneer-khofta.jpg",
-    "Aloo Gobi Masal": "Images/aloo-gobi-masala.jpg",
-    "Aloo Mutter": "Images/aloo-mutter.jpg"
+"Malai Kofta": "Images/malai-kofta.webp",
+"Methi Chaman": "Images/methi-chaman.webp",
+"Paneer Lababdar": "Images/paneer-lababdar.webp",
+"Veg Diwani Handi": "Images/veg-diwani-handi.webp",
+"Veg Kofta": "Images/veg-kofta.webp",
+
+// Indian Vegetarian Gravy
+"Malai Khofta": "Images/malai-khofta.webp",
+"Paneer Khofta": "Images/paneer-khofta.webp",
+"Aloo Gobi Masal": "Images/aloo-gobi-masala.webp",
+"Aloo Mutter": "Images/aloo-mutter.webp",
+"Aloo Palak": "Images/aloo-palak.webp",
+"Dal Fry": "Images/dal-fry.webp",
+"Dal Makhani": "Images/dal-makhani.webp",
+"Dal Palak": "Images/dal-palak.webp",
+"Dal Tadka": "Images/dal-tadka.webp",
+"Kadai Mushroom": "Images/kadai-mushroom.webp",
+"Kadai Paneer": "Images/kadai-paneer.webp",
+"Kadai Veg": "Images/kadai-veg.webp",
+"Kaju Masala": "Images/kaju-masala.webp",
+"Kaju Paneer Masala": "Images/kaju-paneer-masala.webp",
+"Mix Veg Curry": "Images/mix-veg-curry.webp",
+"Mixed Veg Kadai": "Images/mixed-veg-kadai.webp",
+"Mushroom Butter Masala": "Images/mushroom-butter-masala.webp",
+"Mushroom Masala": "Images/mushroom-masala.webp",
+"Mutter Paneer": "Images/mutter-paneer.webp",
+"Palak Paneer": "Images/palak-paneer.webp",
+"Paneer Butter Masala": "Images/paneer-butter-masala.webp",
+"Paneer Tikka Masala": "Images/paneer-tikka-masala.webp",
+"Shahi Paneer": "Images/shahi-paneer.webp",
+"Veg Jaipuri": "Images/veg-jaipuri.webp",
+"Veg Kolhapuri": "Images/veg-kolhapuri.webp",
+
+// Indian Non Veg Gravy
+"Butter Chicken": "Images/butter-chicken.webp",
+"Achari Chicken": "Images/achari-chicken.webp",
+"Afghani Chicken Masala": "Images/afghani-chicken-masala.webp",
+"Butter Chicken Masala": "Images/butter-chicken-masala.webp",
+"Chettinad Chicken Masala": "Images/chettinad-chicken-masala.webp",
+"Chicken Chatpata": "Images/chicken-chatpata.webp",
+"Chicken Curry": "Images/chicken-curry.webp",
+"Chicken Kolhapuri": "Images/chicken-kolhapuri.webp",
+"Chicken Masala": "Images/chicken-masala.webp",
+"Chicken Roast": "Images/chicken-roast.webp",
+"Chicken Roast Masala": "Images/chicken-roast-masala.webp",
+"Chicken Tikka Masala": "Images/chicken-tikka-masala.webp",
+"Kadai Chicken": "Images/kadai-chicken.webp",
+"Murgh Malai": "Images/murgh-malai.webp",
+"Murgh Masala": "Images/murgh-masala.webp",
+"Mutton Roast": "Images/mutton-roast.webp",
+"Mutton Rogan Josh": "Images/mutton-rogan-josh.webp",
+"Pepper Chicken Masala": "Images/pepper-chicken-masala.webp",
+
+// Special Indian Non Veg Gravy
+"Chicken Hyderabadi": "Images/chicken-hyderabadi.webp",
+"Chicken Murgh Lababdar": "Images/chicken-murgh-lababdar.webp",
+"Methi Chicken": "Images/methi-chicken.webp",
+"Punjabi Chicken": "Images/punjabi-chicken.webp",
+
+// Indian Mutton Gravy
+"Achari Mutton": "Images/achari-mutton.webp",
+"Kadai Mutton": "Images/kadai-mutton.webp",
+"Methi Mutton": "Images/methi-mutton.webp",
+"Mutton Chukka": "Images/mutton-chukka.webp",
+"Mutton Ghee Roast": "Images/mutton-ghee-roast.webp",
+"Mutton Kurma": "Images/mutton-kurma.webp",
+"Mutton Masala": "Images/mutton-masala.webp",
+"Mutton Pepper Masala": "Images/mutton-pepper-masala.webp",
+
+// Indian Sea Food Gravy
+"Achari Fish": "Images/achari-fish.webp",
+"Fish Curry": "Images/fish-curry.webp",
+"Fish Kolhapuri": "Images/fish-kolhapuri.webp",
+"Fish Masala": "Images/fish-masala.webp",
+"Kadai Fish": "Images/kadai-fish.webp",
+"Prawn Curry": "Images/prawn-curry.webp",
+"Prawn Masala": "Images/prawn-masala.webp",
+"Punjabi Prawn Masala": "Images/punjabi-prawn-masala.webp",
+
+// North Indian
+"Chicken Patiala": "Images/chicken-patiala.webp",
+
+// South Indian
+"Butter Masala Dosa": "Images/butter-masala-dosa.webp",
+"Combo Break Fast": "Images/combo-break-fast.webp",
+"Combo Special": "Images/combo-special.webp",
+"Dosa": "Images/dosa.webp",
+"Fried Idli": "Images/fried-idli.webp",
+"Ghee Pongal": "Images/ghee-pongal.webp",
+"Ghee Roast": "Images/ghee-roast.webp",
+"Idli": "Images/idli.webp",
+"Masala Dosa": "Images/masala-dosa.webp",
+"Mini Idli (Ghee Idli)": "Images/mini-idli-ghee-idli.webp",
+"Podi Idli": "Images/podi-idli.webp",
+"Puri Masala": "Images/puri-masala.webp",
+"Vada": "Images/vada.webp",
+
+// Rice & Fried Rice
+"Curd Rice": "Images/curd-rice.webp",
+"Ghee Rice": "Images/ghee-rice.webp",
+"Jeera Rice": "Images/jeera-rice.webp",
+"Kaju Fried Rice": "Images/kaju-fried-rice.webp",
+"Mushroom Fried Rice": "Images/mushroom-fried-rice.webp",
+"Paneer Fried Rice": "Images/paneer-fried-rice.webp",
+"Veg Butter Garlic Fried Rice": "Images/veg-butter-garlic-fried-rice.webp",
+"Veg Fried Rice": "Images/veg-fried-rice.webp",
+"Veg Schezwan Fried Rice": "Images/veg-schezwan-fried-rice.webp",
+"Veg Singapore Fried Rice": "Images/veg-singapore-fried-rice.webp",
+
+// Non-Vegetarian Fried Rice
+"Chicken Fried Rice": "Images/chicken-fried-rice.webp",
+"Chicken Schezwan Fried Rice": "Images/chicken-schezwan-fried-rice.webp",
+"Egg Fried Rice": "Images/egg-fried-rice.webp",
+"Kaju Chicken Fried Rice": "Images/kaju-chicken-fried-rice.webp",
+"Mix Non Veg Fried Rice": "Images/mix-non-veg-fried-rice.webp",
+"Sanghai Chicken Fried": "Images/sanghai-chicken-fried.webp",
+"Singapore Chicken Fried Rice": "Images/singapore-chicken-fried-rice.webp",
+
+// Indian Breads & Paratha
+"Aloo Paratha": "Images/aloo-paratha.webp",
+"Butter Kulcha": "Images/butter-kulcha.webp",
+"Butter Naan": "Images/butter-naan.webp",
+"Butter Roti": "Images/butter-roti.webp",
+"Chappathi": "Images/chappathi.webp",
+"Cheese Naan": "Images/cheese-naan.webp",
+"Garlic Naan": "Images/garlic-naan.webp",
+"Kashmiri Naan": "Images/kashmiri-naan.webp",
+"Lacha Paratha": "Images/lacha-paratha.webp",
+"Masala Kulcha": "Images/masala-kulcha.webp",
+"Methi Paratha": "Images/methi-paratha.webp",
+"Murtabak Paratha Chicken": "Images/murtabak-paratha-chicken.webp",
+"Murtabak Paratha Mix": "Images/murtabak-paratha-mix.webp",
+"Murtabak Paratha Mutton": "Images/murtabak-paratha-mutton.webp",
+"Murtabak Paratha Veg": "Images/murtabak-paratha-veg.webp",
+"Onion Kulcha": "Images/onion-kulcha.webp",
+"Paneer Kulcha": "Images/paneer-kulcha.webp",
+"Paneer Paratha": "Images/paneer-paratha.webp",
+"Parotta": "Images/parotta.webp",
+"Phulka": "Images/phulka.webp",
+"Plain Naan": "Images/plain-naan.webp",
+"Pudina Kulcha": "Images/pudina-kulcha.webp",
+"Tandoori Roti": "Images/tandoori-roti.webp",
+"Wheat Paratha": "Images/wheat-paratha.webp",
+
+// Vegetarian Biryani & Pulao
+"Kaju Biryani": "Images/kaju-biryani.webp",
+"Kashmiri Pulao": "Images/kashmiri-pulao.webp",
+"Paneer Biryani": "Images/paneer-biryani.webp",
+"Veg Briyani": "Images/veg-briyani.webp",
+"Veg Pulao": "Images/veg-pulao.webp",
+
+// Non Veg Biryani
+"Chicken 65 Briyani": "Images/chicken-65-briyani.webp",
+"Chicken Dum Briyani": "Images/chicken-dum-briyani.webp",
+"Egg Briyani": "Images/egg-briyani.webp",
+"Fish Briyani": "Images/fish-briyani.webp",
+"Mutton Dum Briyani": "Images/mutton-dum-briyani.webp",
+"Prawn Briyani": "Images/prawn-briyani.webp",
+"Special Combo Briyani": "Images/special-combo-briyani.webp",
+
+// Mandhi
+"Al-Faham Mandhi": "Images/al-faham-mandhi.webp",
+"Chicken Mandhi": "Images/chicken-mandhi.webp",
+"Mutton Mandhi": "Images/mutton-mandhi.webp",
+
+// Noodles Veg & Nonveg
+"Chicken Noodles": "Images/chicken-noodles.webp",
+"Chicken Schezwan Noodles": "Images/chicken-schezwan-noodles.webp",
+"Chilli Garlic Chicken Noodles": "Images/chilli-garlic-chicken-noodles.webp",
+"Egg Soft Noodles": "Images/egg-soft-noodles.webp",
+"Hakka Noodles Nonveg": "Images/hakka-noodles-nonveg.webp",
+"Hakka Noodles Veg": "Images/hakka-noodles-veg.webp",
+"Singapore Chicken Noodles": "Images/singapore-chicken-noodles.webp",
+"Veg Soft Noodles": "Images/veg-soft-noodles.webp",
+
+// Veg Pasta
+"Mix Veg Pasta": "Images/mix-veg-pasta.webp",
+"Mushroom Pasta": "Images/mushroom-pasta.webp",
+"Paneer Pasta": "Images/paneer-pasta.webp",
+"Paneer Pasta Red Sauce": "Images/paneer-pasta-red-sauce.webp",
+"Paneer Pasta White Sauce": "Images/paneer-pasta-white-sauce.webp",
+"Spinach Pasta": "Images/spinach-pasta.webp",
+
+// Non Veg Pasta
+"Bbq Pasta": "Images/bbq-pasta.webp",
+"Carbonara Pasta Chicken": "Images/carbonara-pasta-chicken.webp",
+"Carbonara Pasta Mutton": "Images/carbonara-pasta-mutton.webp",
+"Chicken Pasta": "Images/chicken-pasta.webp",
+"Mix Sauce Pasta": "Images/mix-sauce-pasta.webp",
+"Penne Arrabbiata": "Images/penne-arrabbiata.webp",
+"Spaghetti Bolognese": "Images/spaghetti-bolognese.webp",
+
+// Sandwich
+"Grilled Chicken Cheese Sandwich": "Images/grilled-chicken-cheese-sandwich.webp",
+"Grilled Chicken Combo Sandwich / Lemon Juice & Veg Salad": "Images/grilled-chicken-combo-sandwich-lemon-juice-veg-salad.webp",
+"Grilled Chicken Sandwich": "Images/grilled-chicken-sandwich.webp",
+"Grilled Coleslaw Sandwich": "Images/grilled-coleslaw-sandwich.webp",
+"Grilled Double Egg Cheese Sandwich": "Images/grilled-double-egg-cheese-sandwich.webp",
+"Grilled Double Egg Sandwich": "Images/grilled-double-egg-sandwich.webp",
+"Grilled Egg Cheese Sandwich": "Images/grilled-egg-cheese-sandwich.webp",
+"Grilled Egg Sandwich": "Images/grilled-egg-sandwich.webp",
+"Grilled Veg Cheese Sandwich": "Images/grilled-veg-cheese-sandwich.webp",
+"Grilled Veg Sandwich": "Images/grilled-veg-sandwich.webp",
+
+// Chaat
+"Bhel Puri": "Images/bhel-puri.webp",
+"Dahi Kachori": "Images/dahi-kachori.webp",
+"Dahi Papadi Chaat": "Images/dahi-papadi-chaat.webp",
+"Dahi Puri": "Images/dahi-puri.webp",
+"Masala Puri": "Images/masala-puri.webp",
+"Pani Puri": "Images/pani-puri.webp",
+"Papadi Chaat": "Images/papadi-chaat.webp",
+"Samosa Chaat": "Images/samosa-chaat.webp",
+"Sev Puri": "Images/sev-puri.webp",
   };
 
-  // Return the image for a dish, or a placeholder if no mapping exists.
+  // Use explicit mapping or derive a filename from the dish name.
   function getDishImage(name) {
-    return dishImages[name] || "Images/food-placeholder.jpg";
+    if (dishImages[name]) return dishImages[name];
+
+    const slug = name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    return `Images/${slug}.webp`;
   }
 
-  // Prevent broken image icons if an image file is missing.
-  function addImageFallback(img) {
-    img.onerror = () => {
-      img.onerror = null;
-      img.src = "Images/food-placeholder.jpg";
-    };
+  // Hide broken images instead of displaying a wrong dish or category banner.
+  function handleImageError(img) {
+    img.addEventListener("error", () => {
+      img.hidden = true;
+      img.removeAttribute("src");
+    }, { once: true });
   }
 
   // Category navigation
   links.forEach(link => {
     link.addEventListener("click", event => {
-      const target = document.querySelector(link.getAttribute("href"));
+      const href = link.getAttribute("href");
+      const target = document.querySelector(href);
       if (!target) return;
 
       event.preventDefault();
-
       target.scrollIntoView({
         behavior: reduce.matches ? "auto" : "smooth",
         block: "start"
@@ -389,12 +591,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       links.forEach(item => item.classList.remove("active"));
       link.classList.add("active");
-
-      history.replaceState(null, "", link.getAttribute("href"));
+      history.replaceState(null, "", href);
     });
   });
 
-  // Build featured cards and individual dish thumbnails
+  // Set the category banner background only on the heading.
   document.querySelectorAll(".menu-category").forEach(section => {
     const heading = section.querySelector(".menu-category-heading");
     const bannerImage = heading?.querySelector(".menu-category-image");
@@ -406,70 +607,79 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       bannerImage.alt ||= "Copper Potz menu category";
     }
+  });
 
-    const dishItems = [...section.querySelectorAll(".menu-list article")];
+  // Build a featured image on the left and thumbnail list on the right.
+  document.querySelectorAll(".menu-category .menu-subcategory").forEach(subcategory => {
+    if (subcategory.dataset.featureLayoutBuilt === "true") return;
 
-    if (!dishItems.length) return;
+    const heading = subcategory.querySelector(":scope > h3");
+    const menuList = subcategory.querySelector(":scope > .menu-list");
+    if (!heading || !menuList) return;
 
-    // Avoid creating duplicate featured cards if the script runs again.
-    let featured = heading?.nextElementSibling;
+    const dishes = [...menuList.querySelectorAll(":scope > article")];
+    if (!dishes.length) return;
 
-    if (heading && !featured?.classList.contains("featured-dishes")) {
-      featured = document.createElement("div");
-      featured.className = "featured-dishes";
-      featured.setAttribute("aria-label", "Featured dishes");
+    const layout = document.createElement("div");
+    layout.className = "menu-feature-content";
 
-      dishItems.slice(0, 3).forEach(item => {
-        const name = item.querySelector("h4")?.textContent.trim() || "Dish";
-        const price = item.querySelector("strong")?.textContent.trim() || "";
-        const tag = item.querySelector(".food-tag");
+    // Featured dish panel (first dish)
+    const featureDish = dishes[0];
+    const featureName = featureDish.querySelector("h4")?.textContent.trim() || "Featured Dish";
+    const featurePrice = featureDish.querySelector("strong")?.textContent.trim() || "";
+    const featureTag = featureDish.querySelector(".food-tag")?.cloneNode(true);
 
-        const card = document.createElement("article");
-        card.className = "featured-dish-card";
+    const featurePanel = document.createElement("div");
+    featurePanel.className = "menu-feature-image";
 
-        const img = document.createElement("img");
-        img.src = getDishImage(name);
-        img.alt = name;
-        img.loading = "lazy";
-        addImageFallback(img);
+    const featureImg = document.createElement("img");
+    featureImg.className = "menu-feature-photo";
+    featureImg.src = getDishImage(featureName);
+    featureImg.alt = featureName;
+    featureImg.loading = "lazy";
+    handleImageError(featureImg);
 
-        const info = document.createElement("div");
-        info.className = "featured-dish-info";
+    const caption = document.createElement("div");
+    caption.className = "menu-feature-caption";
 
-        const title = document.createElement("h4");
-        title.textContent = name;
+    const kicker = document.createElement("span");
+    kicker.textContent = "COPPER POTZ FAVOURITE";
 
-        const priceElement = document.createElement("strong");
-        priceElement.textContent = price;
+    const title = document.createElement("h4");
+    title.textContent = featureName;
 
-        info.append(title, priceElement);
+    const price = document.createElement("strong");
+    price.textContent = featurePrice;
 
-        if (tag) {
-          info.append(tag.cloneNode(true));
-        }
+    caption.append(kicker, title);
+    if (featureTag) caption.append(featureTag);
+    caption.append(price);
+    featurePanel.append(featureImg, caption);
 
-        card.append(img, info);
-        featured.append(card);
-      });
+    // Remaining dishes: every row gets its own image.
+    const listPanel = document.createElement("div");
+    listPanel.className = "menu-feature-list";
 
-      heading.insertAdjacentElement("afterend", featured);
-    }
+    dishes.slice(1).forEach(dish => {
+      const name = dish.querySelector("h4")?.textContent.trim() || "Dish";
 
-    // Add the correct image to each dish row.
-    dishItems.forEach(item => {
-      const name = item.querySelector("h4")?.textContent.trim() || "Dish";
-      let img = item.querySelector(".dish-thumb");
-
-      if (!img) {
-        img = document.createElement("img");
-        img.className = "dish-thumb";
-        item.prepend(img);
+      let thumb = dish.querySelector(".dish-thumb");
+      if (!thumb) {
+        thumb = document.createElement("img");
+        thumb.className = "dish-thumb";
+        dish.prepend(thumb);
       }
 
-      img.src = getDishImage(name);
-      img.alt = name;
-      img.loading = "lazy";
-      addImageFallback(img);
+      thumb.src = getDishImage(name);
+      thumb.alt = name;
+      thumb.loading = "lazy";
+      handleImageError(thumb);
+
+      listPanel.appendChild(dish);
     });
+
+    layout.append(featurePanel, listPanel);
+    menuList.replaceWith(layout);
+    subcategory.dataset.featureLayoutBuilt = "true";
   });
 });

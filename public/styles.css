@@ -2854,6 +2854,16 @@ textarea:focus {
     --menu-gold: #c39457;
     --menu-cream: #f8f5ed;
     --menu-border: #e5dfd4;
+    --menu-cream: #f8f3e9;
+    --menu-cream-light: #fffaf2;
+    --menu-green: #173b2e;
+    --menu-green-dark: #0b2118;
+    --menu-gold: #d09a4b;
+    --menu-copper: #ad641c;
+    --menu-text: #20251f;
+    --menu-muted: #777064;
+    --menu-border: #e7dac6;
+    --menu-white: #fffdf8;
 }
 
 .menu-hero {
@@ -3357,6 +3367,20 @@ a {
     color: inherit
 }
 
+.menu-page {
+    width: 100%;
+    overflow: clip;
+    color: var(--menu-text);
+    background: var(--menu-cream);
+}
+
+.menu-page *,
+.menu-page *::before,
+.menu-page *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Sticky category navigation ---------- */
 .menu-nav {
     position: sticky;
     top: 10%;
@@ -3366,123 +3390,128 @@ a {
     justify-content: center;
     gap: 3px;
     min-height: 44px;
-    padding: 5px max(16px, calc((100% - 1260px)/2));
+    padding: 5px max(16px, calc((100% - 1260px) / 2));
     overflow-x: auto;
     white-space: nowrap;
-    background: rgba(255, 253, 248, .98);
-    border-bottom: 1px solid #eadfce;
-    scrollbar-width: thin
+    background: rgba(255, 253, 248, 0.98);
+    border-bottom: 1px solid var(--menu-border);
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu-nav a {
     flex: 0 0 auto;
     padding: 8px 12px;
     border-radius: 20px;
+    color: var(--menu-text);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 10px;
-    letter-spacing: .25px;
-    font-weight: 600
+    letter-spacing: 0.25px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-.menu-nav a:not(:first-child):after {
+.menu-nav a:not(:first-child)::after {
     content: "";
     display: inline-block;
     height: 10px;
     margin-left: 12px;
-    border-right: 1px solid #e7d8c2
+    border-right: 1px solid var(--menu-border);
 }
 
 .menu-nav a:hover,
 .menu-nav a.active {
-    background: #d99b4b;
-    color: white
+    color: #fff;
+    background: var(--menu-gold);
 }
 
-.menu-page {
-    overflow: hidden;
-    background: var(--cream)
+.menu-nav a:focus-visible {
+    outline: 2px solid var(--menu-green);
+    outline-offset: 2px;
 }
 
+/* ---------- Category section ---------- */
 .menu-category {
     position: relative;
-    padding: 0 0 30px;
     isolation: isolate;
-    scroll-margin-top: 56px
+    padding: 0 0 32px;
+    scroll-margin-top: 55px;
+    background: var(--menu-cream);
 }
 
 .menu-category:nth-of-type(even) {
-    background: #f3eadb
+    background: #f3eadb;
 }
 
-/* Full-width photographic category banner */
+/* ---------- Full-width category banner ---------- */
 .menu-category-heading {
     position: relative;
     display: grid;
-    grid-template-columns: 54px minmax(220px, .9fr) minmax(280px, 1.2fr);
+    grid-template-columns: 54px minmax(0, 1fr);
     align-items: center;
     gap: 18px;
     min-height: 205px;
-    padding: 25px max(34px, calc((100% - 1180px)/2));
+    padding: 25px max(34px, calc((100% - 1180px) / 2));
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(249, 243, 231, .98) 0%, rgba(249, 243, 231, .94) 31%, rgba(249, 243, 231, .2) 58%, rgba(249, 243, 231, 0) 100%), var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
+    background:
+        linear-gradient(
+            90deg,
+            rgba(249, 243, 231, 0.98) 0%,
+            rgba(249, 243, 231, 0.94) 31%,
+            rgba(249, 243, 231, 0.2) 58%,
+            rgba(249, 243, 231, 0) 100%
+        ),
+        var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
     background-position: center;
     background-size: cover;
-    border-bottom: 1px solid #e4d3b8
+    border-bottom: 1px solid #e4d3b8;
 }
 
-.menu-category-heading:before {
+.menu-category-heading::before {
     content: "❧";
     position: absolute;
     left: -27px;
     top: 7px;
-    color: var(--gold);
+    color: var(--menu-gold);
     font: 108px/1 Georgia, serif;
-    opacity: .6;
+    opacity: 0.6;
     transform: rotate(-35deg);
-    pointer-events: none
+    pointer-events: none;
 }
 
 .menu-heading-content {
     position: relative;
     z-index: 2;
     min-width: 0;
-    grid-column: 2
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .menu-heading-content h2 {
     margin: 0 0 7px;
     color: #10130f;
-    font: 600 clamp(30px, 3.5vw, 44px)/1.1 'Playfair Display', Georgia, serif;
-    letter-spacing: -1.2px
+    font: 600 clamp(30px, 3.5vw, 44px)/1.1
+        "Playfair Display", Georgia, serif;
+    letter-spacing: -1.2px;
 }
 
 .menu-heading-content p {
-    margin: 0;
     max-width: 460px;
+    margin: 0;
     color: #36362f;
     font-size: 12px;
-    line-height: 1.65
+    line-height: 1.65;
 }
 
 .menu-kicker {
     display: block;
     margin-bottom: 8px;
-    color: var(--copper);
+    color: var(--menu-copper);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
-    text-transform: uppercase
-}
-
-.menu-category-image {
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: 58%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: .99
+    text-transform: uppercase;
 }
 
 .menu-section-number {
@@ -3490,18 +3519,38 @@ a {
     z-index: 2;
     grid-column: 1;
     grid-row: 1;
-    color: var(--gold);
-    font: 500 clamp(40px, 4.5vw, 58px)/1 'Playfair Display', Georgia, serif;
-    text-align: left
+    color: var(--menu-gold);
+    font: 500 clamp(40px, 4.5vw, 58px)/1
+        "Playfair Display", Georgia, serif;
+    text-align: left;
 }
 
-/* Dark photo banners for selected categories */
+.menu-category-image {
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 auto;
+    display: block;
+    width: 58%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.99;
+}
+
+/* Dark category banners */
 #starters .menu-category-heading,
 #rice-biryani-breads .menu-category-heading,
 #beverages .menu-category-heading {
-    background: linear-gradient(90deg, rgba(8, 28, 20, .97) 0%, rgba(8, 28, 20, .9) 35%, rgba(8, 28, 20, .4) 62%, rgba(8, 28, 20, .04) 100%), var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 28, 20, 0.97) 0%,
+            rgba(8, 28, 20, 0.9) 35%,
+            rgba(8, 28, 20, 0.4) 62%,
+            rgba(8, 28, 20, 0.04) 100%
+        ),
+        var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
     background-size: cover;
-    background-position: center
+    background-position: center;
 }
 
 #starters .menu-heading-content h2,
@@ -3510,238 +3559,408 @@ a {
 #starters .menu-heading-content p,
 #rice-biryani-breads .menu-heading-content p,
 #beverages .menu-heading-content p {
-    color: var(--white)
+    color: var(--menu-white);
 }
 
 #starters .menu-kicker,
 #rice-biryani-breads .menu-kicker,
 #beverages .menu-kicker {
-    color: #e3b96f
+    color: #e3b96f;
 }
 
-/* Three featured dish cards */
-.featured-dishes {
-    position: relative;
-    z-index: 3;
-    width: min(1180px, calc(100% - 60px));
-    margin: -16px auto 8px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px
+/* ---------- Hide old three-card featured layout ---------- */
+.menu-category .featured-dishes {
+    display: none !important;
 }
 
-.featured-dish-card {
-    overflow: hidden;
-    background: #fffaf1;
-    border: 1px solid #eadbc5;
-    border-radius: 7px;
-    box-shadow: 0 5px 16px #4e3b2010
+.view-all,
+.view-all-wrap {
+    display: none !important;
 }
 
-.featured-dish-card>img {
-    width: 100%;
-    height: 112px;
-    object-fit: cover
-}
-
-.featured-dish-info {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 4px 8px;
-    align-items: center;
-    padding: 9px 12px 10px
-}
-
-.featured-dish-info h4 {
-    margin: 0;
-    font: 600 13px/1.35 'Playfair Display', Georgia, serif
-}
-
-.featured-dish-info strong {
-    color: var(--copper);
-    font: 600 16px/1.2 'Playfair Display', Georgia, serif;
-    white-space: nowrap
-}
-
-.featured-dish-info .food-tag {
-    grid-column: 1/-1
-}
-
-/* Category lists and small dish thumbnails */
+/* ---------- Subcategory headings ---------- */
 .menu-subcategory {
     width: min(1180px, 100%);
     margin: 0 auto;
-    padding: 18px 28px 0;
-    display: flex;
-    flex-direction: column;
-    break-inside: avoid
+    padding: 28px 28px 0;
+    break-inside: avoid;
 }
 
-.menu-subcategory h3 {
+.menu-subcategory > h3 {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 0 0 6px;
+    margin: 0 0 8px;
     padding: 0 0 9px;
-    border-bottom: 1px solid var(--gold);
-    color: var(--green);
-    font: 600 19px/1.3 'Playfair Display', Georgia, serif
+    border-bottom: 1px solid var(--menu-gold);
+    color: var(--menu-green);
+    font: 600 19px/1.3 "Playfair Display", Georgia, serif;
 }
 
-.menu-subcategory h3:after {
+.menu-subcategory > h3::after {
     content: "";
     width: 40px;
-    border-top: 1px solid var(--gold)
+    flex: 0 0 40px;
+    border-top: 1px solid var(--menu-gold);
 }
 
-.menu-list {
+/* =========================================================
+   FEATURE LAYOUT
+   Left: featured dish image
+   Right: all remaining dishes with thumbnails
+   ========================================================= */
+
+
+/* Fix featured image stretching */
+.menu-feature-content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 28px
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
 }
 
-.menu-list article {
+/* Keep the featured image at a normal size */
+
+/* Featured dish: name and price above the image */
+.menu-feature-image {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    align-self: start;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+/* Image itself */
+.menu-feature-image > img.menu-feature-photo {
+    position: static;
+    display: block;
+    order: 2;
+    width: 100%;
+    height: 320px;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 0 5px 5px;
+    transform: none;
+}
+
+/* Dish details appear above the photo */
+.menu-feature-caption {
+    position: static;
+    order: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 5px 12px;
+    padding: 12px 14px;
+    color: var(--menu-text);
+    /* background: var(--menu-white); */
+    border: 1px solid var(--menu-border);
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.menu-feature-caption > span:not(.food-tag) {
+    grid-column: 1 / -1;
+    color: var(--menu-copper);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.menu-feature-caption h4 {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    color: var(--menu-text);
+    font: 600 19px/1.3 "Playfair Display", Georgia, serif;
+}
+
+.menu-feature-caption > strong {
+    grid-column: 2;
+    grid-row: 2;
+    color: var(--menu-copper);
+    font: 600 24px/1.2 "Playfair Display", Georgia, serif;
+    white-space: nowrap;
+}
+
+.menu-feature-caption .food-tag {
+    grid-column: 1 / -1;
+    font-size: 10px;
+}
+
+/* Remove the old dark overlay effect */
+.menu-feature-image:hover > img.menu-feature-photo {
+    transform: none;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .menu-feature-image > img.menu-feature-photo {
+        height: 280px;
+    }
+
+    .menu-feature-caption h4 {
+        font-size: 17px;
+    }
+
+    .menu-feature-caption > strong {
+        font-size: 21px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .menu-feature-image > img.menu-feature-photo {
+        height: 230px;
+    }
+
+    .menu-feature-caption {
+        padding: 11px 12px;
+    }
+
+    .menu-feature-caption h4 {
+        font-size: 18px;
+    }
+
+    .menu-feature-caption > strong {
+        font-size: 21px;
+    }
+}
+
+/* ---------- Remaining dish list on the right ---------- */
+.menu-feature-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
     min-width: 0;
+}
+
+/* Three columns: thumbnail, name/details, price */
+.menu-feature-list > article {
     display: grid;
     grid-template-columns: 62px minmax(0, 1fr) auto;
     align-items: center;
     gap: 10px;
+    flex: 0 0 auto;
+    min-width: 0;
+    min-height: 54px;
     padding: 7px 0;
-    border-bottom: 1px solid #e9decc
+    border-bottom: 1px solid #e9decc;
+    background: transparent;
 }
 
-.dish-thumb {
+.menu-feature-list > article > img.dish-thumb {
+    display: block;
+    width: 62px;
+    height: 45px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+    background: #eee2cf;
+}
+
+.menu-feature-list > article > div {
+    min-width: 0;
+}
+
+.menu-feature-list h4 {
+    margin: 0 0 4px;
+    color: var(--menu-text);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.menu-feature-list article > strong {
+    align-self: center;
+    color: var(--menu-copper);
+    font: 600 16px/1.2 "Playfair Display", Georgia, serif;
+    white-space: nowrap;
+}
+
+.menu-feature-list .food-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+.veg-tag {
+    color: #176c43;
+}
+
+.nonveg-tag {
+    color: #c9291d;
+}
+
+/* Avoid showing old grid styles inside the newly created layout */
+.menu-feature-content .menu-list {
+    display: none;
+}
+
+/* ---------- Existing list fallback for sections not transformed ---------- */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    min-width: 0;
+}
+
+.menu-list > article {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 7px 0;
+    border-bottom: 1px solid #e9decc;
+}
+
+.menu-list > article > img.dish-thumb {
+    display: block;
     width: 62px;
     height: 45px;
     object-fit: cover;
     border-radius: 6px;
-    background: var(--cream2)
+    background: #eee2cf;
 }
 
-.menu-list article>div {
-    min-width: 0
+.menu-list article > div {
+    min-width: 0;
 }
 
 .menu-list h4 {
-    margin: 0 0 3px;
-    color: var(--text);
+    margin: 0 0 4px;
+    color: var(--menu-text);
     font-size: 12px;
     font-weight: 600;
-    line-height: 1.35
+    line-height: 1.4;
 }
 
-.menu-list article>strong {
-    flex: 0 0 auto;
-    color: var(--copper);
-    font: 600 16px/1.2 'Playfair Display', Georgia, serif;
-    white-space: nowrap
+.menu-list article > strong {
+    color: var(--menu-copper);
+    font: 600 16px/1.2 "Playfair Display", Georgia, serif;
+    white-space: nowrap;
 }
 
+/* ---------- Food labels ---------- */
 .food-tag {
     display: inline-flex;
     align-items: center;
     gap: 4px;
     font-size: 9px;
-    line-height: 1.3
-}
-
-.veg-tag {
-    color: #176c43
-}
-
-.nonveg-tag {
-    color: #c9291d
+    line-height: 1.35;
 }
 
 .menu-disclaimer {
     margin: 0;
     padding: 24px 15px 32px;
+    color: var(--menu-muted);
     text-align: center;
-    color: var(--muted);
-    font-size: 11px
+    font-size: 11px;
 }
 
-.view-all,
-.view-all-wrap {
-    display: none !important
-}
-
-@media(min-width:901px) {
-    .menu-category {
-        padding-bottom: 34px
-    }
-
-    .menu-category .menu-subcategory:nth-of-type(odd) {
-        background: transparent
-    }
-}
-
-@media(max-width:900px) {
+/* =========================================================
+   TABLET RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
     .menu-nav {
         justify-content: flex-start;
-        padding-inline: 12px
+        padding-inline: 12px;
+    }
+
+    .menu-category {
+        padding-bottom: 26px;
     }
 
     .menu-category-heading {
-        grid-template-columns: 45px minmax(0, 1fr) minmax(200px, .9fr);
+        grid-template-columns: 45px minmax(0, 1fr);
         gap: 12px;
         min-height: 180px;
-        padding: 22px 22px
+        padding: 22px;
     }
 
     .menu-category-image {
-        width: 55%
+        width: 55%;
     }
 
     .menu-subcategory {
-        padding-inline: 20px
+        padding-inline: 20px;
     }
 
-    .menu-list {
-        column-gap: 20px
+    .menu-feature-content {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 10px;
     }
 
-    .menu-list article {
+    .menu-feature-image {
+        min-height: 280px;
+    }
+
+    .menu-feature-caption {
+        padding-inline: 13px;
+    }
+
+    .menu-feature-list > article,
+    .menu-list > article {
         grid-template-columns: 54px minmax(0, 1fr) auto;
-        gap: 8px
+        gap: 8px;
     }
 
-    .dish-thumb {
+    .menu-feature-list > article > img.dish-thumb,
+    .menu-list > article > img.dish-thumb {
         width: 54px;
-        height: 42px
+        height: 42px;
     }
 
-    .featured-dishes {
-        width: calc(100% - 40px)
+    .menu-feature-list h4,
+    .menu-list h4 {
+        font-size: 11px;
     }
 
-    .featured-dish-card>img {
-        height: 95px
+    .menu-feature-list article > strong,
+    .menu-list article > strong {
+        font-size: 15px;
     }
 }
 
-@media(max-width:600px) {
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+@media (max-width: 600px) {
     html {
-        scroll-padding-top: 52px
+        scroll-padding-top: 50px;
     }
 
     .menu-nav {
+        top: 0;
         min-height: 42px;
+        justify-content: flex-start;
         gap: 2px;
-        padding: 5px 8px
+        padding: 5px 8px;
     }
 
     .menu-nav a {
         padding: 8px 9px;
-        font-size: 9px
+        font-size: 9px;
     }
 
-    .menu-nav a:not(:first-child):after {
-        margin-left: 7px
+    .menu-nav a:not(:first-child)::after {
+        margin-left: 7px;
     }
 
     .menu-category {
-        padding-bottom: 20px
+        padding-bottom: 20px;
+        scroll-margin-top: 48px;
     }
 
     .menu-category-heading {
@@ -3749,148 +3968,192 @@ a {
         gap: 8px;
         min-height: 0;
         padding: 24px 14px 22px;
-        background: linear-gradient(90deg, rgba(249, 243, 231, .97), rgba(249, 243, 231, .78)), var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
+        background:
+            linear-gradient(
+                90deg,
+                rgba(249, 243, 231, 0.97),
+                rgba(249, 243, 231, 0.78)
+            ),
+            var(--category-photo, linear-gradient(120deg, #eee2ce, #f8f3e9));
+        background-position: center;
         background-size: cover;
-        background-position: center
     }
 
-    .menu-category-heading:before {
+    .menu-category-heading::before {
         left: -35px;
         font-size: 92px;
-        opacity: .42
+        opacity: 0.42;
     }
 
     .menu-category-image {
         width: 100%;
-        opacity: 0
+        opacity: 0;
     }
 
     .menu-section-number {
         grid-column: 1;
         grid-row: 1;
-        font-size: 35px
+        font-size: 35px;
     }
 
     .menu-heading-content {
         grid-column: 2;
-        grid-row: 1
+        grid-row: 1;
     }
 
     .menu-heading-content h2 {
         font-size: clamp(25px, 7vw, 34px);
-        letter-spacing: -.7px
+        letter-spacing: -0.7px;
     }
 
     .menu-heading-content p {
         font-size: 11px;
-        line-height: 1.5
+        line-height: 1.5;
     }
 
     .menu-kicker {
         font-size: 8px;
-        letter-spacing: 1.3px
+        letter-spacing: 1.3px;
     }
 
-    .featured-dishes {
-        width: calc(100% - 24px);
-        margin: -12px auto 4px;
-        gap: 7px
+    /* Featured photo stacks above the dish list */
+    .menu-feature-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
     }
 
-    .featured-dish-card {
-        border-radius: 5px
+    .menu-feature-image {
+        height: 230px;
+        min-height: 0;
     }
 
-    .featured-dish-card>img {
-        height: 70px
+    .menu-feature-image > img.menu-feature-photo {
+        height: 100%;
     }
 
-    .featured-dish-info {
-        padding: 7px 7px 8px;
-        gap: 3px
+    .menu-feature-caption {
+        padding: 35px 15px 15px;
     }
 
-    .featured-dish-info h4 {
-        font-size: 10px
+    .menu-feature-caption h4 {
+        font-size: 21px;
     }
 
-    .featured-dish-info strong {
-        font-size: 12px
-    }
-
-    .featured-dish-info .food-tag {
-        font-size: 8px
+    .menu-feature-caption > strong {
+        font-size: 18px;
     }
 
     .menu-subcategory {
-        padding: 18px 14px 0
+        padding: 18px 14px 0;
     }
 
-    .menu-subcategory h3 {
-        font-size: 17px
-    }
-
-    .menu-list {
-        grid-template-columns: minmax(0, 1fr);
-        column-gap: 0
-    }
-
-    .menu-list article {
-        padding: 7px 0;
+    .menu-subcategory > h3 {
         gap: 9px;
-        grid-template-columns: 52px minmax(0, 1fr) auto
+        font-size: 17px;
     }
 
-    .dish-thumb {
+    .menu-subcategory > h3::after {
+        width: 28px;
+        flex-basis: 28px;
+    }
+
+    /* List thumbnails remain visible on mobile */
+    .menu-feature-list > article,
+    .menu-list > article {
+        grid-template-columns: 52px minmax(0, 1fr) auto;
+        gap: 9px;
+        min-height: 54px;
+        padding: 7px 0;
+    }
+
+    .menu-feature-list > article > img.dish-thumb,
+    .menu-list > article > img.dish-thumb {
         width: 52px;
-        height: 40px
+        height: 40px;
     }
 
+    .menu-feature-list h4,
     .menu-list h4 {
-        font-size: 11px
+        font-size: 11px;
     }
 
-    .menu-list article>strong {
-        font-size: 15px
+    .menu-feature-list article > strong,
+    .menu-list article > strong {
+        font-size: 14px;
     }
 
-    .food-tag {
-        font-size: 9px
+    .menu-feature-list .food-tag,
+    .menu-list .food-tag {
+        font-size: 9px;
     }
 
+    /* Dark category banners on mobile */
     #starters .menu-category-heading,
     #rice-biryani-breads .menu-category-heading,
     #beverages .menu-category-heading {
-        background: linear-gradient(90deg, rgba(8, 28, 20, .94), rgba(8, 28, 20, .66)), var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
-        background-size: cover
+        background:
+            linear-gradient(
+                90deg,
+                rgba(8, 28, 20, 0.94),
+                rgba(8, 28, 20, 0.66)
+            ),
+            var(--category-photo, linear-gradient(120deg, #0b2118, #173b2e));
+        background-size: cover;
+        background-position: center;
     }
 }
 
-@media(max-width:360px) {
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+@media (max-width: 360px) {
     .menu-category-heading {
-        padding-inline: 11px
+        padding-inline: 11px;
     }
 
     .menu-subcategory {
-        padding-inline: 11px
+        padding-inline: 11px;
     }
 
-    .featured-dish-info h4 {
-        font-size: 9px
+    .menu-feature-image {
+        height: 200px;
     }
 
-    .featured-dish-info strong {
-        font-size: 11px
+    .menu-feature-caption h4 {
+        font-size: 18px;
     }
 
-    .menu-list article {
+    .menu-feature-list > article,
+    .menu-list > article {
         grid-template-columns: 44px minmax(0, 1fr) auto;
-        gap: 7px
+        gap: 7px;
     }
 
-    .dish-thumb {
+    .menu-feature-list > article > img.dish-thumb,
+    .menu-list > article > img.dish-thumb {
         width: 44px;
-        height: 36px
+        height: 36px;
+    }
+
+    .menu-feature-list h4,
+    .menu-list h4 {
+        font-size: 10px;
+    }
+
+    .menu-feature-list article > strong,
+    .menu-list article > strong {
+        font-size: 13px;
+    }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .menu-feature-image > img.menu-feature-photo {
+        transition: none;
+    }
+
+    .menu-nav a {
+        transition: none;
     }
 }
 
