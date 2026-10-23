@@ -52,91 +52,167 @@ if (dateInput) {
 }
 
 
+/* Copper Potz Contact Form - FormSubmit AJAX */
 
-/* Copper Potz Contact Form - PHP Handler */
 
-async function submitCopperPotzForm(form, type) {
-  const submitButton = form.querySelector("#submit-button");
-  const buttonLabel = form.querySelector("#button-label");
-  const status = form.querySelector("#status");
-  const originalLabel = buttonLabel?.textContent ||
-    (type === "contact" ? "Send message" : "Request Reservation");
+/* Copper Potz Contact Form - FormSubmit */
 
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  if (submitButton?.disabled) return;
-
-  if (submitButton) submitButton.disabled = true;
-  if (buttonLabel) buttonLabel.textContent = "Sending...";
-  if (status) {
-    status.textContent = "";
-    status.style.color = "#ffd0c9";
-  }
-
-  try {
-    const formData = new FormData(form);
-    formData.set("form_type", type);
-
-    const response = await fetch("/contact.php", {
-      method: "POST",
-      body: formData,
-      headers: { "Accept": "application/json" }
-    });
-
-    const result = await response.json();
-
-    if (!response.ok || result.success !== true) {
-      throw new Error(
-        result.message || "Unable to send your request. Please try again."
-      );
-    }
-
-    if (status) {
-      status.style.color = "#bfe9ca";
-      status.textContent = type === "contact"
-        ? "Thank you! Your message has been sent successfully."
-        : "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
-    }
-
-    form.reset();
-
-  } catch (error) {
-    console.error(`${type} form error:`, error);
-
-    if (status) {
-      status.style.color = "#ffd0c9";
-      status.textContent =
-        error.message || "Unable to send your request. Please try again.";
-    }
-  } finally {
-    if (submitButton) submitButton.disabled = false;
-    if (buttonLabel) buttonLabel.textContent = originalLabel;
-  }
-}
-
-// Contact form
 const contactForm = document.querySelector("#contact-form");
 
 if (contactForm) {
-  contactForm.addEventListener("submit", event => {
+  const submitButton = contactForm.querySelector("#submit-button");
+  const buttonLabel = contactForm.querySelector("#button-label");
+  const status = contactForm.querySelector("#status");
+
+  const originalLabel = buttonLabel?.textContent || "Send message";
+
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    submitCopperPotzForm(contactForm, "contact");
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    submitButton.disabled = true;
+    if (buttonLabel) buttonLabel.textContent = "Sending...";
+
+    status.textContent = "";
+    status.style.color = "#ffd0c9";
+
+    const startedAt = performance.now();
+
+    try {
+      const formData = new FormData(contactForm);
+      const payload = Object.fromEntries(formData.entries());
+
+      payload._subject =
+        `Copper Potz - Contact Message - ${new Date().toLocaleString("en-IN")}`;
+      payload._template = "table";
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/harichandran934@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        }
+      );
+
+      const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
+      console.log(`FormSubmit request took ${elapsed} seconds.`);
+      console.log("HTTP status:", response.status);
+
+      const result = await response.json();
+      console.log("FormSubmit result:", result);
+
+      if (
+        !response.ok ||
+        String(result.success) !== "true"
+      ) {
+        throw new Error(
+          result.message || "The message could not be sent. Please try again."
+        );
+      }
+
+      status.style.color = "#bfe9ca";
+      status.textContent =
+        "Thank you! Your message has been sent successfully.";
+
+      contactForm.reset();
+
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      status.style.color = "#ffd0c9";
+      status.textContent =
+        error.message || "Unable to send your message. Please try again.";
+
+    } finally {
+      submitButton.disabled = false;
+      if (buttonLabel) buttonLabel.textContent = originalLabel;
+    }
   });
 }
 
-// Reservation form
+// Copper Potz - Reservation Form Submission
 const reservationForm = document.querySelector("#reservation-form");
 
 if (reservationForm) {
-  reservationForm.addEventListener("submit", event => {
-    event.preventDefault();
-    submitCopperPotzForm(reservationForm, "reservation");
-  });
-}
+    const submitButton = reservationForm.querySelector("#submit-button");
+    const buttonLabel = reservationForm.querySelector("#button-label");
+    const status = reservationForm.querySelector("#status");
 
+    const originalLabel = buttonLabel.textContent;
+
+    reservationForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Validate required fields
+        if (!reservationForm.checkValidity()) {
+            reservationForm.reportValidity();
+            return;
+        }
+
+        // Prevent duplicate submissions
+        if (submitButton.disabled) return;
+
+        submitButton.disabled = true;
+        buttonLabel.textContent = "Sending...";
+        status.textContent = "";
+        status.style.color = "#ffd0c9";
+
+        try {
+            const formData = new FormData(reservationForm);
+            const payload = Object.fromEntries(formData.entries());
+
+            payload._subject = `Copper Potz - Table Reservation - ${new Date().toLocaleString("en-IN")}`;
+            payload._template = "table";
+
+            const response = await fetch(
+                "https://formsubmit.co/ajax/harichandran934@gmail.com",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                }
+            );
+
+            const result = await response.json();
+
+            console.log("Reservation response:", response.status, result);
+
+            if (!response.ok || String(result.success) !== "true") {
+                throw new Error(
+                    result.message || "Unable to send your reservation request."
+                );
+            }
+
+            status.style.color = "#bfe9ca";
+            status.textContent =
+                "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
+
+            reservationForm.reset();
+
+        } catch (error) {
+            console.error("Reservation form error:", error);
+
+            status.style.color = "#ffd0c9";
+            status.textContent =
+                "We couldn't confirm submission. Please check your email before trying again, as your request may still have been delivered.";
+
+        } finally {
+            submitButton.disabled = false;
+            buttonLabel.textContent = originalLabel;
+        }
+    });
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
