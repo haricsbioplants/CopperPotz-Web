@@ -69,7 +69,15 @@
                     <p style="margin-top:26px"><a class="btn btn-outline" href="reservation.html">Request a table ↗</a>
                     </p>
                 </div>
-                <form class="form-box" id="contact-form">
+                <form action="contact.php" method="POST" class="form-box"
+                    id="contact-form">
+                    <input type="hidden" name="form_type" value="contact">
+
+  <!-- Honeypot field for basic spam protection -->
+  <div style="display:none">
+    <input type="text" name="website" tabindex="-1"
+           autocomplete="off">
+  </div>
                     <h3 style="margin:0 0 22px;font-size:27px">Send us a message</h3>
                     <div class="form-grid">
                         <div class="field full"><label for="name">Your name *</label><input id="name" name="name"
@@ -81,7 +89,9 @@
                         <div class="field full"><label for="message">Your message *</label><textarea id="message"
                                 name="message" placeholder="How can we help?" maxlength="3000" required></textarea>
                         </div>
-                    </div><button class="btn" id="submit-button" type="submit"><span id="button-label">Send
+                    </div>
+                    <input type="hidden" name="_next" value="http://www.copperpotz.com/contact.html?submitted=true">
+                    <button class="btn" id="submit-button" type="submit"><span id="button-label">Send
                             message</span> ↗</button>
                     <p id="status" role="status" aria-live="polite"></p>
                 </form>
