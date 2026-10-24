@@ -91,7 +91,7 @@ if (contactForm) {
       payload._template = "table";
 
       const response = await fetch(
-        "https://formsubmit.co/ajax/harichandran934@gmail.com",
+        "https://formsubmit.co/ajax/copperpotz24@gmail.com",
         {
           method: "POST",
           headers: {
@@ -173,7 +173,7 @@ if (reservationForm) {
             payload._template = "table";
 
             const response = await fetch(
-                "https://formsubmit.co/ajax/harichandran934@gmail.com",
+                "https://formsubmit.co/ajax/copperpotz24@gmail.com",
                 {
                     method: "POST",
                     headers: {
@@ -364,10 +364,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Individual dish image mappings
   const dishImages = {
     // Soups
-    "Chicken Coconut Pepper Soup": "Images/chicken-coconut-pepper-soup.jpg",
-    "Chicken Curry Leaves Soup": "Images/chicken-curry-leaves-soup.jpg",
+    "Chicken Coconut Pepper Soup": "Images/chicken-coconut-pepper-soup.png",
+    "Chicken Curry Leaves Soup": "Images/chicken-curry-leaves-soup.png",
     "Coriander Chicken Soup": "Images/coriander-chicken-soup.webp",
-    "Cream Of Chicken & Roasted Garlic": "Images/cream-chicken-roasted-garlic-soup.webp",
+    "Cream Of Chicken & Roasted Garlic": "Images/cream-chicken-roasted-garlic-soup.png",
     "Copper Potz Special Soup": "Images/copper-potz-special-soup.webp",
     "Cream Of Mushroom Soup": "Images/mushroom-soup.webp",
     "Cream Of Veg Soup": "Images/cream-of-veg-soup.webp",
@@ -378,10 +378,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "Veg Lemon Coriander Soup": "Images/veg-lemon-coriander-soup.webp",
     "Veg Manchow Soup": "Images/veg-manchow-soup.webp",
     "Veg Sweet Corn Soup": "Images/veg-sweet-corn-soup.webp",
-    "Chicken Copper Potz Special Soup": "Images/chicken-copper-potz-special-soup.webp",
+    "Chicken Copper Potz Special Soup": "Images/chicken-copper-potz-special-soup.png",
     "Chicken French Onion Soup": "Images/chicken-french-onion-soup.webp",
     "Chicken Hot & Sour Soup": "Images/chicken-hot-and-sour-soup.webp",
-    "Chicken Lemon Coriander Soup": "Images/chicken-lemon-coriander-soup.webp",
+    "Chicken Lemon Coriander Soup": "Images/chicken-lemon-coriander-soup.png",
     "Chicken Manchow Soup": "Images/chicken-manchow-soup.webp",
     "Chicken Sweet Corn Soup": "Images/chicken-sweet-corn-soup.webp",
     "Clear Chicken Soup": "Images/clear-chicken-soup.webp",
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Tandoori Chicken Salad": "Images/tandoori-chicken-salad.webp",
 
     // Tandoori starters
-    "Chicken Cola Urundai": "Images/chicken-cola-urundai.webp",
+    "Chicken Cola Urundai": "Images/chicken-cola-urundai.png",
     "Fish Cola Urundai": "Images/fish-cola-urundai.webp",
     "Mutton Cola Urundai": "Images/mutton-cola-urundai.webp",
     "Paneer Achari Tikka": "Images/paneer-achari-tikka.webp",
@@ -557,7 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Punjabi Chicken": "Images/punjabi-chicken.webp",
 
 // Indian Mutton Gravy
-"Achari Mutton": "Images/achari-mutton.webp",
+"Achari Mutton": "Images/achari-mutton.png",
 "Kadai Mutton": "Images/kadai-mutton.webp",
 "Methi Mutton": "Images/methi-mutton.webp",
 "Mutton Chukka": "Images/mutton-chukka.webp",
@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Mutton Pepper Masala": "Images/mutton-pepper-masala.webp",
 
 // Indian Sea Food Gravy
-"Achari Fish": "Images/achari-fish.webp",
+"Achari Fish": "Images/achari-fish.png",
 "Fish Curry": "Images/fish-curry.webp",
 "Fish Kolhapuri": "Images/fish-kolhapuri.webp",
 "Fish Masala": "Images/fish-masala.webp",
@@ -580,8 +580,8 @@ document.addEventListener("DOMContentLoaded", () => {
 "Chicken Patiala": "Images/chicken-patiala.webp",
 
 // South Indian
-"Butter Masala Dosa": "Images/butter-masala-dosa.webp",
-"Combo Break Fast": "Images/combo-break-fast.webp",
+"Butter Masala Dosa": "Images/butter-masala-dosa.png",
+"Combo Break Fast": "Images/combo-break-fast.png",
 "Combo Special": "Images/combo-special.webp",
 "Dosa": "Images/dosa.webp",
 "Fried Idli": "Images/fried-idli.webp",
@@ -642,7 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Wheat Paratha": "Images/wheat-paratha.webp",
 
 // Vegetarian Biryani & Pulao
-"Kaju Biryani": "Images/kaju-biryani.webp",
+"Kaju Biryani": "Images/kaju-biryani.png",
 "Kashmiri Pulao": "Images/kashmiri-pulao.webp",
 "Paneer Biryani": "Images/paneer-biryani.webp",
 "Veg Briyani": "Images/veg-briyani.webp",
@@ -658,7 +658,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Special Combo Briyani": "Images/special-combo-briyani.webp",
 
 // Mandhi
-"Al-Faham Mandhi": "Images/al-faham-mandhi.webp",
+"Al-Faham Mandhi": "Images/al-faham-mandhi.png",
 "Chicken Mandhi": "Images/chicken-mandhi.webp",
 "Mutton Mandhi": "Images/mutton-mandhi.webp",
 
@@ -711,6 +711,95 @@ document.addEventListener("DOMContentLoaded", () => {
 "Papadi Chaat": "Images/papadi-chaat.webp",
 "Samosa Chaat": "Images/samosa-chaat.webp",
 "Sev Puri": "Images/sev-puri.webp",
+
+// Sweet
+"Bhadusa": "Images/bhadusa.webp",
+"Chandra Kala": "Images/chandra-kala.webp",
+"Gulab Jamun": "Images/gulab-jamun.webp",
+"Mottisur Laddu": "Images/mottisur-laddu.webp",
+
+// Ice Cream
+"Black Current Ice Cream": "Images/black-current-ice-cream.webp",
+"Chocolate Ice Cream": "Images/chocolate-ice-cream.webp",
+"Jack Fruit Ice Cream": "Images/jack-fruit-ice-cream.webp",
+"Mango Ice Cream": "Images/mango-ice-cream.webp",
+"Pista Ice Cream": "Images/pista-ice-cream.webp",
+"Spanish Ice Cream": "Images/spanish-ice-cream.webp",
+"Strawberry Ice Cream": "Images/strawberry-ice-cream.webp",
+"Tender Coconut Ice Cream": "Images/tender-coconut-ice-cream.webp",
+"Vanilla Ice Cream": "Images/vanilla-ice-cream.webp",
+
+// Cold Coffee & Fruit Salad
+"Cold Coffee": "Images/cold-coffee.webp",
+"Custard Fruit Salad": "Images/custard-fruit-salad.webp",
+"Fresh Cream Cold Coffee": "Images/fresh-cream-cold-coffee.webp",
+"Fresh Creamy Fruit Salad": "Images/fresh-creamy-fruit-salad.webp",
+"Fruit Salad": "Images/fruit-salad.webp",
+"Fruit Salad With Ice Cream": "Images/fruit-salad-with-ice-cream.webp",
+"Jelly Fruit Salad": "Images/jelly-fruit-salad.webp",
+"Jelly Fruit Salad With Ice Cream": "Images/jelly-fruit-salad-with-ice-cream.png",
+
+// Falooda
+"Fruit Falooda": "Images/fruit-falooda.png",
+"Normal Falooda": "Images/normal-falooda.png",
+"Nuts Falooda": "Images/nuts-falooda.png",
+"Oreo Falooda": "Images/oreo-falooda.png",
+"Royal Falooda": "Images/royal-falooda.png",
+
+// Jigar Thanda
+"Chocolate Jigar Thanda": "Images/chocolate-jigar-thanda.png",
+"Pista Jigar Thanda": "Images/pista-jigar-thanda.png",
+"Strawberry Jigar Thanda": "Images/strawberry-jigar-thanda.png",
+
+// Milk Shake
+"Apple Milk Shake": "Images/apple-milk-shake.png",
+"Badam Milk Shake": "Images/badam-milk-shake.png",
+"Banana Milk Shake": "Images/banana-milk-shake.png",
+"Black Current Milk Shake": "Images/black-current-milk-shake.png",
+"Blueberry Milk Shake": "Images/blueberry-milk-shake.png",
+"Brownie Milk Shake": "Images/brownie-milk-shake.png",
+"Chickoo Milk Shake": "Images/chickoo-milk-shake.png",
+"Chocolate Milk Shake": "Images/chocolate-milk-shake.png",
+"Chocolate Sharjah Milk Shake": "Images/chocolate-sharjah-milk-shake.png",
+"Dates Milk Shake": "Images/dates-milk-shake.png",
+"Jack Fruit Milk Shake": "Images/jack-fruit-milk-shake.png",
+"Mango Milk Shake": "Images/mango-milk-shake.png",
+"Mango Sharjah Milk Shake": "Images/mango-sharjah-milk-shake.png",
+"Oreo Milk Shake": "Images/oreo-milk-shake.png",
+"Papaya Milk Shake": "Images/papaya-milk-shake.png",
+"Pista Milk Shake": "Images/pista-milk-shake.png",
+"Srawberry Milk Shake": "Images/srawberry-milk-shake.png",
+"Tender Coconut Milk Shake": "Images/tender-coconut-milk-shake.png",
+"Vanilla Milk Shake": "Images/vanilla-milk-shake.png",
+
+// Lassi
+"Banana Lassi": "Images/banana-lassi.png",
+"Mango Lassi": "Images/mango-lassi.png",
+"Strawberry Lassi": "Images/strawberry-lassi.png",
+"Sweet Lassi": "Images/sweet-lassi.png",
+
+// Mojitos
+"Blue Lagoon": "Images/blue-lagoon.png",
+"Blue Mojito": "Images/blue-mojito.png",
+"Green Apple Mojito": "Images/green-apple-mojito.png",
+"Lemon Mint Mojito": "Images/lemon-mint-mojito.png",
+"Pine Apple Mojito": "Images/pine-apple-mojito.png",
+"Strawberry Mojito": "Images/strawberry-mojito.png",
+"Virgin Blue Mojito": "Images/virgin-blue-mojito.png",
+"Water Melon Mojito": "Images/water-melon-mojito.png",
+
+// Mocktail
+"Strawberry Mocktail": "Images/strawberry-mocktail.png",
+"Tangy Jamun Mocktail": "Images/tangy-jamun-mocktail.png",
+"Tangy Mango Mocktail": "Images/tangy-mango-mocktail.png",
+"Tangy Pine Apple Mocktail": "Images/tangy-pine-apple-mocktail.png",
+
+// Special Mocktail
+"Coke Ice Mocktail": "Images/coke-ice-mocktail.png",
+"Kiwi Mocktail": "Images/kiwi-mocktail.png",
+"Rainbow Mocktail": "Images/rainbow-mocktail.png",
+"Rose Gulkand Mocktail": "Images/rose-gulkand-mocktail.png",
+"Sunset Mocktail": "Images/sunset-mocktail.png",
   };
 
   // Use explicit mapping or derive a filename from the dish name.
