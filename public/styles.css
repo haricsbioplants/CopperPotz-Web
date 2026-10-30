@@ -63,21 +63,148 @@ a {
     -webkit-mask-size: contain;
     mask-size: contain;
 }
+/* Diagonal arrow icon */
+[aria-hidden="true"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.arrow-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.arrow-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #263e2e;
+}
+
+.contact-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+/* =================================
+   COPPER POTZ - PROMISE SECTION ICONS
+================================= */
+
+.promise-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Common icon styling */
+.promise-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* SVG compatibility for Safari */
+.promise-icon svg {
+    display: block;
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+/* Fresh ingredients */
 .promise-icon--fresh {
     width: 24px;
     height: 24px;
     min-width: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
 }
 
 .promise-icon--fresh svg {
-    display: block;
     width: 17px;
     height: 17px;
-    flex-shrink: 0;
+}
+
+.promise-icon--fresh svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+/* Made to order */
+.promise-icon--made {
+    color: #e12626;
+}
+
+.promise-icon--made svg {
+    width: 25px;
+    height: 25px;
+}
+
+.promise-icon--made svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Warm hospitality */
+.promise-icon--heart {
+    color: #a99b70;
+}
+
+.promise-icon--heart svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Moments together */
+.promise-icon--moments {
+    color: #d9b76c;
+}
+
+.promise-icon--moments svg path {
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0.5;
+    stroke-linejoin: round;
 }
 
 button,
@@ -2926,7 +3053,7 @@ textarea:focus {
         0 0 0 68px #ffffff04;
 }
 
-.menu-hero::after {
+/* .menu-hero::after {
     content: "✳";
     position: absolute;
     z-index: -1;
@@ -2936,7 +3063,7 @@ textarea:focus {
     font-size: 300px;
     line-height: 1;
     pointer-events: none;
-}
+} */
 
 /* Botanical-style decorative shapes */
 .hero-decor {
