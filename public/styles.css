@@ -55,7 +55,14 @@ a {
     text-decoration: none
 }
 
-
+.icon {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
 
 button,
 
@@ -4545,4 +4552,495 @@ body.gallery-open {
 
     }
 
+}
+
+/* banquet css */
+:root {
+    --banquet-green: #263e2e;
+    --banquet-dark: #183d2b;
+    --banquet-gold: #b7864c;
+    --banquet-cream: #f8f5ed;
+    --banquet-white: #fffefa;
+}
+
+.banquet-container {
+    width: min(1160px, 90%);
+    margin: 0 auto;
+}
+
+.banquet-hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(16, 37, 27, .92), rgba(16, 37, 27, .35)),
+        url("./Images/Banquet Hall.png") center/cover no-repeat;
+    color: white;
+}
+
+.banquet-hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.banquet-eyebrow {
+    display: inline-block;
+    color: var(--banquet-gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.banquet-hero h1,
+.banquet-section-heading h2,
+.banquet-intro-content h2,
+.banquet-food-content h2,
+.banquet-enquiry-content h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.banquet-hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    max-width: 780px;
+    margin: 0 0 24px;
+}
+
+.banquet-hero h1 em,
+.banquet-section-heading h2 em,
+.banquet-intro-content h2 em,
+.banquet-food-content h2 em,
+.banquet-enquiry-content h2 em {
+    color: var(--banquet-gold);
+    font-weight: 500;
+}
+
+.banquet-hero-content > p {
+    max-width: 590px;
+    color: #eee9df;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+.banquet-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.banquet-btn,
+.banquet-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .25s ease;
+}
+
+.banquet-btn {
+    background: var(--banquet-gold);
+    color: #172c20;
+}
+
+.banquet-btn:hover {
+    background: #d5aa6c;
+    transform: translateY(-2px);
+}
+
+.banquet-outline-btn {
+    color: white;
+    border: 1px solid rgba(255,255,255,.65);
+}
+
+.banquet-outline-btn:hover {
+    background: white;
+    color: var(--banquet-green);
+}
+
+.banquet-intro,
+.banquet-food {
+    background: var(--banquet-cream);
+    padding: 100px 0;
+}
+
+.banquet-intro-grid,
+.banquet-food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.banquet-intro-image,
+.banquet-food-image {
+    height: 480px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.banquet-intro-image img,
+.banquet-food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.banquet-intro-content h2,
+.banquet-food-content h2,
+.banquet-enquiry-content h2 {
+    color: var(--banquet-green);
+    font-size: clamp(34px, 4vw, 49px);
+    margin: 0 0 24px;
+}
+
+.banquet-intro-content p,
+.banquet-food-content p,
+.banquet-enquiry-content > p {
+    color: #666b62;
+    line-height: 1.9;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.banquet-text-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--banquet-green);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--banquet-gold);
+    padding-bottom: 7px;
+}
+
+.banquet-venues {
+    padding: 100px 0;
+    background: #fffefa;
+}
+
+.banquet-section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.banquet-section-heading h2 {
+    color: var(--banquet-green);
+    font-size: clamp(36px, 4vw, 52px);
+    margin: 0 0 18px;
+}
+
+.banquet-section-heading p {
+    color: #777;
+    line-height: 1.8;
+}
+
+.banquet-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.banquet-card {
+    background: var(--banquet-cream);
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.banquet-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.09);
+}
+
+.banquet-card > img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.banquet-card-content {
+    padding: 28px;
+}
+
+.banquet-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--banquet-gold);
+}
+
+.banquet-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    color: var(--banquet-green);
+    margin: 13px 0;
+}
+
+.banquet-card p {
+    color: #6d716a;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 76px;
+}
+
+.banquet-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--banquet-green);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.banquet-occasions {
+    padding: 100px 0;
+    background: var(--banquet-green);
+}
+
+.banquet-occasions .banquet-section-heading h2 {
+    color: white;
+}
+
+.banquet-occasion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.16);
+}
+
+.banquet-occasion {
+    padding: 35px 30px;
+    background: var(--banquet-green);
+}
+
+.banquet-occasion > span {
+    color: var(--banquet-gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.banquet-occasion h3 {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    margin: 18px 0 12px;
+}
+
+.banquet-occasion p {
+    color: #d5ddd5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.banquet-food {
+    background: #fffefa;
+}
+
+.banquet-enquiry {
+    padding: 100px 0;
+    background: var(--banquet-cream);
+}
+
+.banquet-enquiry-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.banquet-contact-details {
+    margin-top: 35px;
+    color: var(--banquet-green);
+}
+
+.banquet-contact-details p {
+    line-height: 1.7;
+}
+
+.banquet-contact-details a {
+    color: var(--banquet-gold);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.banquet-enquiry-form {
+    background: var(--banquet-green);
+    padding: 38px;
+    color: white;
+}
+
+.banquet-enquiry-form h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    margin: 0 0 28px;
+}
+
+.banquet-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.banquet-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.banquet-field-full {
+    grid-column: 1 / -1;
+}
+
+.banquet-field label {
+    font-size: 13px;
+    color: #f3f0e8;
+}
+
+.banquet-field input,
+.banquet-field select,
+.banquet-field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    background: var(--banquet-white);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #263e2e;
+    font: inherit;
+    font-size: 14px;
+}
+
+.banquet-field textarea {
+    resize: vertical;
+}
+
+.banquet-field input:focus,
+.banquet-field select:focus,
+.banquet-field textarea:focus {
+    outline: 2px solid var(--banquet-gold);
+}
+
+.banquet-submit {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+    border: 0;
+    background: var(--banquet-gold);
+    color: #172c20;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.banquet-submit:hover {
+    background: #d5aa6c;
+}
+
+.banquet-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+#banquet-status {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 14px;
+}
+
+.banquet-form-note {
+    color: #cbd5cb;
+    font-size: 11px;
+    line-height: 1.7;
+    margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+    .banquet-intro-grid,
+    .banquet-food-grid,
+    .banquet-enquiry-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .banquet-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .banquet-occasion-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .banquet-intro-image,
+    .banquet-food-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .banquet-hero {
+        min-height: 520px;
+        background-position: center;
+    }
+
+    .banquet-hero-content {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .banquet-hero h1 {
+        font-size: 43px;
+    }
+
+    .banquet-intro,
+    .banquet-food,
+    .banquet-venues,
+    .banquet-occasions,
+    .banquet-enquiry {
+        padding: 65px 0;
+    }
+
+    .banquet-card-grid,
+    .banquet-occasion-grid,
+    .banquet-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .banquet-field-full {
+        grid-column: auto;
+    }
+
+    .banquet-intro-image,
+    .banquet-food-image {
+        height: 300px;
+    }
+
+    .banquet-card > img {
+        height: 230px;
+    }
+
+    .banquet-enquiry-form {
+        padding: 25px 20px;
+    }
+
+    .banquet-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .banquet-btn,
+    .banquet-outline-btn {
+        width: 100%;
+    }
 }

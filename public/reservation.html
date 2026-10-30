@@ -19,6 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -31,10 +32,12 @@
                 <img src="./Images/copper pot logo.png" alt="copper-pot"></a>
             <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
             <div class="nav-links" id="nav-links">
-                <a href="index.html" data-page="index.html">Home</a><a href="menu.html" data-page="menu.html">Menu</a><a
-                    href="about.html" data-page="about.html">Our story</a><a href="contact.html"
-                    data-page="contact.html">Contact</a><a class="btn" href="reservation.html"
-                    data-page="reservation.html">Reserve a table ↗</a>
+                <a href="index.html" data-page="index.html">Home</a>
+                <a href="menu.html" data-page="menu.html">Menu</a>
+                <a href="banquet.html" data-page="banquet.html">Banquet</a>
+                <a href="about.html" data-page="about.html">Our story</a>
+                <a href="contact.html" data-page="contact.html">Contact</a>
+                <a class="btn" href="reservation.html" data-page="reservation.html">Reserve a table ↗</a>
             </div>
         </div>
     </nav>
@@ -140,8 +143,13 @@
             </div>
             <div class="footer-column">
                 <h3>Explore</h3>
-                <div class="footer-links"><a href="menu.html">Our menu</a><a href="about.html">Our story</a><a
-                        href="reservation.html">Reservations</a><a href="contact.html">Contact</a></div>
+                <div class="footer-links">
+                    <a href="menu.html">Our menu</a>
+                    <a href="about.html">Our story</a>
+                    <a href="banquet.html">Banquet</a>
+                    <a href="reservation.html">Reservations</a>
+                    <a href="contact.html">Contact</a>
+                </div>
             </div>
             <div class="footer-column">
                 <h3>Visit us</h3>
@@ -156,6 +164,7 @@
                 food
                 and good company.</span></div>
     </footer>
+    <script src="./email-config.js"></script>
     <script src="site.js"></script>
 </body>
 

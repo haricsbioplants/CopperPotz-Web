@@ -55,90 +55,238 @@ if (dateInput) {
 /* Copper Potz Contact Form - FormSubmit AJAX */
 
 
-/* Copper Potz Contact Form - FormSubmit */
+// /* Copper Potz Contact Form - FormSubmit */
 
-const contactForm = document.querySelector("#contact-form");
+// const contactForm = document.querySelector("#contact-form");
 
-if (contactForm) {
-  const submitButton = contactForm.querySelector("#submit-button");
-  const buttonLabel = contactForm.querySelector("#button-label");
-  const status = contactForm.querySelector("#status");
+// if (contactForm) {
+//   const submitButton = contactForm.querySelector("#submit-button");
+//   const buttonLabel = contactForm.querySelector("#button-label");
+//   const status = contactForm.querySelector("#status");
 
-  const originalLabel = buttonLabel?.textContent || "Send message";
+//   const originalLabel = buttonLabel?.textContent || "Send message";
 
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+//   contactForm.addEventListener("submit", async (event) => {
+//     event.preventDefault();
 
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      return;
+//     if (!contactForm.checkValidity()) {
+//       contactForm.reportValidity();
+//       return;
+//     }
+
+//     submitButton.disabled = true;
+//     if (buttonLabel) buttonLabel.textContent = "Sending...";
+
+//     status.textContent = "";
+//     status.style.color = "#ffd0c9";
+
+//     const startedAt = performance.now();
+
+//     try {
+//       const formData = new FormData(contactForm);
+//       const payload = Object.fromEntries(formData.entries());
+
+//       payload._subject =
+//         `Copper Potz - Contact Message - ${new Date().toLocaleString("en-IN")}`;
+//       payload._template = "table";
+
+//       const response = await fetch(
+//         "https://formsubmit.co/ajax/copperpotz24@gmail.com",
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//           },
+//           body: JSON.stringify(payload)
+//         }
+//       );
+
+//       const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
+//       console.log(`FormSubmit request took ${elapsed} seconds.`);
+//       console.log("HTTP status:", response.status);
+
+//       const result = await response.json();
+//       console.log("FormSubmit result:", result);
+
+//       if (
+//         !response.ok ||
+//         String(result.success) !== "true"
+//       ) {
+//         throw new Error(
+//           result.message || "The message could not be sent. Please try again."
+//         );
+//       }
+
+//       status.style.color = "#bfe9ca";
+//       status.textContent =
+//         "Thank you! Your message has been sent successfully.";
+
+//       contactForm.reset();
+
+//     } catch (error) {
+//       console.error("Contact form error:", error);
+
+//       status.style.color = "#ffd0c9";
+//       status.textContent =
+//         error.message || "Unable to send your message. Please try again.";
+
+//     } finally {
+//       submitButton.disabled = false;
+//       if (buttonLabel) buttonLabel.textContent = originalLabel;
+//     }
+//   });
+// }
+
+// // Copper Potz - Reservation Form Submission
+// const reservationForm = document.querySelector("#reservation-form");
+
+// if (reservationForm) {
+//     const submitButton = reservationForm.querySelector("#submit-button");
+//     const buttonLabel = reservationForm.querySelector("#button-label");
+//     const status = reservationForm.querySelector("#status");
+
+//     const originalLabel = buttonLabel.textContent;
+
+//     reservationForm.addEventListener("submit", async (event) => {
+//         event.preventDefault();
+
+//         // Validate required fields
+//         if (!reservationForm.checkValidity()) {
+//             reservationForm.reportValidity();
+//             return;
+//         }
+
+//         // Prevent duplicate submissions
+//         if (submitButton.disabled) return;
+
+//         submitButton.disabled = true;
+//         buttonLabel.textContent = "Sending...";
+//         status.textContent = "";
+//         status.style.color = "#ffd0c9";
+
+//         try {
+//             const formData = new FormData(reservationForm);
+//             const payload = Object.fromEntries(formData.entries());
+
+//             payload._subject = `Copper Potz - Table Reservation - ${new Date().toLocaleString("en-IN")}`;
+//             payload._template = "table";
+
+//             const response = await fetch(
+//                 "https://formsubmit.co/ajax/copperpotz24@gmail.com",
+//                 {
+//                     method: "POST",
+//                     headers: {
+//                         "Content-Type": "application/json",
+//                         "Accept": "application/json"
+//                     },
+//                     body: JSON.stringify(payload)
+//                 }
+//             );
+
+//             const result = await response.json();
+
+//             console.log("Reservation response:", response.status, result);
+
+//             if (!response.ok || String(result.success) !== "true") {
+//                 throw new Error(
+//                     result.message || "Unable to send your reservation request."
+//                 );
+//             }
+
+//             status.style.color = "#bfe9ca";
+//             status.textContent =
+//                 "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
+
+//             reservationForm.reset();
+
+//         } catch (error) {
+//             console.error("Reservation form error:", error);
+
+//             status.style.color = "#ffd0c9";
+//             status.textContent =
+//                 "We couldn't confirm submission. Please check your email before trying again, as your request may still have been delivered.";
+
+//         } finally {
+//             submitButton.disabled = false;
+//             buttonLabel.textContent = originalLabel;
+//         }
+//     });
+// }
+
+/* ==========================================
+   COPPER POTZ - EMAILJS FORM INTEGRATION
+========================================== */
+
+async function sendCopperPotzEmail({
+    form,
+    submitButton,
+    buttonLabel,
+    status,
+    templateId,
+    successMessage
+}) {
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    if (submitButton.disabled) return;
+
+    if (typeof emailjs === "undefined") {
+        status.textContent = "Email service is not available. Please try again later.";
+        status.style.color = "#ffd0c9";
+        return;
     }
 
     submitButton.disabled = true;
+
+    const originalLabel = buttonLabel?.textContent || "Submit";
     if (buttonLabel) buttonLabel.textContent = "Sending...";
 
     status.textContent = "";
     status.style.color = "#ffd0c9";
 
-    const startedAt = performance.now();
-
     try {
-      const formData = new FormData(contactForm);
-      const payload = Object.fromEntries(formData.entries());
+        const formData = new FormData(form);
+        const templateParams = Object.fromEntries(formData.entries());
 
-      payload._subject =
-        `Copper Potz - Contact Message - ${new Date().toLocaleString("en-IN")}`;
-      payload._template = "table";
+        // Add submission details
+        templateParams.submission_date =
+            new Date().toLocaleString("en-IN");
 
-      const response = await fetch(
-        "https://formsubmit.co/ajax/copperpotz24@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(payload)
-        }
-      );
-
-      const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
-      console.log(`FormSubmit request took ${elapsed} seconds.`);
-      console.log("HTTP status:", response.status);
-
-      const result = await response.json();
-      console.log("FormSubmit result:", result);
-
-      if (
-        !response.ok ||
-        String(result.success) !== "true"
-      ) {
-        throw new Error(
-          result.message || "The message could not be sent. Please try again."
+        await emailjs.send(
+            EMAIL_CONFIG.serviceId,
+            templateId,
+            templateParams
         );
-      }
 
-      status.style.color = "#bfe9ca";
-      status.textContent =
-        "Thank you! Your message has been sent successfully.";
+        status.style.color = "#bfe9ca";
+        status.textContent = successMessage;
 
-      contactForm.reset();
+        form.reset();
 
     } catch (error) {
-      console.error("Contact form error:", error);
+        console.error("Copper Potz email error:", error);
 
-      status.style.color = "#ffd0c9";
-      status.textContent =
-        error.message || "Unable to send your message. Please try again.";
+        status.style.color = "#ffd0c9";
+        status.textContent =
+            "We couldn't send your request. Please try again or contact the restaurant directly.";
 
     } finally {
-      submitButton.disabled = false;
-      if (buttonLabel) buttonLabel.textContent = originalLabel;
+        submitButton.disabled = false;
+
+        if (buttonLabel) {
+            buttonLabel.textContent = originalLabel;
+        }
     }
-  });
 }
 
-// Copper Potz - Reservation Form Submission
+
+/* ==========================================
+   1. TABLE RESERVATION FORM
+========================================== */
+
 const reservationForm = document.querySelector("#reservation-form");
 
 if (reservationForm) {
@@ -146,71 +294,47 @@ if (reservationForm) {
     const buttonLabel = reservationForm.querySelector("#button-label");
     const status = reservationForm.querySelector("#status");
 
-    const originalLabel = buttonLabel.textContent;
-
     reservationForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        // Validate required fields
-        if (!reservationForm.checkValidity()) {
-            reservationForm.reportValidity();
-            return;
-        }
+        await sendCopperPotzEmail({
+            form: reservationForm,
+            submitButton,
+            buttonLabel,
+            status,
+            templateId: EMAIL_CONFIG.templates.reservation,
 
-        // Prevent duplicate submissions
-        if (submitButton.disabled) return;
+            successMessage:
+                "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability."
+        });
+    });
+}
 
-        submitButton.disabled = true;
-        buttonLabel.textContent = "Sending...";
-        status.textContent = "";
-        status.style.color = "#ffd0c9";
 
-        try {
-            const formData = new FormData(reservationForm);
-            const payload = Object.fromEntries(formData.entries());
+/* ==========================================
+   2. CONTACT FORM
+========================================== */
 
-            payload._subject = `Copper Potz - Table Reservation - ${new Date().toLocaleString("en-IN")}`;
-            payload._template = "table";
+const contactForm = document.querySelector("#contact-form");
 
-            const response = await fetch(
-                "https://formsubmit.co/ajax/copperpotz24@gmail.com",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(payload)
-                }
-            );
+if (contactForm) {
+    const submitButton = contactForm.querySelector("#submit-button");
+    const buttonLabel = contactForm.querySelector("#button-label");
+    const status = contactForm.querySelector("#status");
 
-            const result = await response.json();
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-            console.log("Reservation response:", response.status, result);
+        await sendCopperPotzEmail({
+            form: contactForm,
+            submitButton,
+            buttonLabel,
+            status,
+            templateId: EMAIL_CONFIG.templates.contact,
 
-            if (!response.ok || String(result.success) !== "true") {
-                throw new Error(
-                    result.message || "Unable to send your reservation request."
-                );
-            }
-
-            status.style.color = "#bfe9ca";
-            status.textContent =
-                "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
-
-            reservationForm.reset();
-
-        } catch (error) {
-            console.error("Reservation form error:", error);
-
-            status.style.color = "#ffd0c9";
-            status.textContent =
-                "We couldn't confirm submission. Please check your email before trying again, as your request may still have been delivered.";
-
-        } finally {
-            submitButton.disabled = false;
-            buttonLabel.textContent = originalLabel;
-        }
+            successMessage:
+                "Thank you! Your message has been sent successfully."
+        });
     });
 }
 
@@ -368,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Chicken Curry Leaves Soup": "Images/chicken-curry-leaves-soup.png",
     "Coriander Chicken Soup": "Images/coriander-chicken-soup.webp",
     "Cream Of Chicken & Roasted Garlic": "Images/cream-chicken-roasted-garlic-soup.png",
-    "Copper Potz Special Soup": "Images/copper-potz-special-soup.webp",
+    "Copper Potz Special Soup": "Images/copper-potz-special-soup.jpg",
     "Cream Of Mushroom Soup": "Images/mushroom-soup.webp",
     "Cream Of Veg Soup": "Images/cream-of-veg-soup.webp",
     "Lentil Soup": "Images/lentil-soup.webp",
@@ -392,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Tom Yum Soup": "Images/tom-yum-soup.png",
 
     // Salads
-    "Chicken Ceaser Salad": "Images/chicken-ceaser-salad.webp",
+    "Chicken Ceaser Salad": "Images/chicken-ceaser-salad.jpg",
     "Chicken Caesar Salad": "Images/chicken-caesar-salad.jpg",
     "Coleslaw Salad": "Images/coleslaw-salad.webp",
     "Green Salad": "Images/green-salad.webp",
@@ -435,7 +559,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Zafrani Kabab": "Images/zafrani-kabab.webp",
 
     // Chinese vegetarian starters
-    "Baby Corn 65": "Images/baby-corn-65.webp",
+    "Baby Corn 65": "Images/baby-corn-65.jpg",
     "Baby Corn Chilli": "Images/baby-corn-chilli.webp",
     "Baby Corn Manchurian": "Images/baby-corn-manchurian.webp",
     "Baby Corn Salt & Pepper": "Images/baby-corn-salt-pepper.webp",
@@ -453,7 +577,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Paneer Manchurian": "Images/paneer-manchurian.webp",
 
     // Chinese non-vegetarian starters
-    "Chicken 65": "Images/chicken-65.webp",
+    "Chicken 65": "Images/chicken-65.jpg",
     "Chicken Lolipop ( 6pic )": "Images/chicken-lolipop.webp",
     "Chicken Majestic": "Images/chicken-majestic.webp",
     "Chicken Manchurian": "Images/chicken-manchurian.webp",
@@ -478,7 +602,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Chilli Mutton": "Images/chilli-mutton.png",
     "Lamp Roast": "Images/lamp-roast.webp",
     "Schezwan Lamp": "Images/schezwan-lamp.webp",
-    "Apollo Fish": "Images/apollo-fish.webp",
+    "Apollo Fish": "Images/apollo-fish.jpg",
     "Chilli Fish": "Images/chilli-fish.webp",
     "Chilli Garlic Prawns": "Images/chilli-garlic-prawns.webp",
     "Fish Finger": "Images/fish-finger.webp",
@@ -497,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Indian main course
     // Indian Main Course
-"Malai Kofta": "Images/malai-kofta.webp",
+"Malai Kofta": "Images/malai-kofta.jpg",
 "Methi Chaman": "Images/methi-chaman.webp",
 "Paneer Lababdar": "Images/paneer-lababdar.webp",
 "Veg Diwani Handi": "Images/veg-diwani-handi.webp",
@@ -506,7 +630,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Indian Vegetarian Gravy
 "Malai Khofta": "Images/malai-khofta.webp",
 "Paneer Khofta": "Images/paneer-khofta.webp",
-"Aloo Gobi Masal": "Images/aloo-gobi-masala.webp",
+"Aloo Gobi Masal": "Images/aloo-gobi-masala.jpg",
 "Aloo Mutter": "Images/aloo-mutter.webp",
 "Aloo Palak": "Images/aloo-palak.webp",
 "Dal Fry": "Images/dal-fry.webp",
@@ -531,7 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Veg Kolhapuri": "Images/veg-kolhapuri.png",
 
 // Indian Non Veg Gravy
-"Butter Chicken": "Images/butter-chicken.webp",
+"Butter Chicken": "Images/butter-chicken.jpg",
 "Achari Chicken": "Images/achari-chicken.png",
 "Afghani Chicken Masala": "Images/afghani-chicken-masala.webp",
 "Butter Chicken Masala": "Images/butter-chicken-masala.webp",
@@ -551,7 +675,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Pepper Chicken Masala": "Images/pepper-chicken-masala.webp",
 
 // Special Indian Non Veg Gravy
-"Chicken Hyderabadi": "Images/chicken-hyderabadi.webp",
+"Chicken Hyderabadi": "Images/chicken-hyderabadi.jpg",
 "Chicken Murgh Lababdar": "Images/chicken-murgh-lababdar.webp",
 "Methi Chicken": "Images/methi-chicken.webp",
 "Punjabi Chicken": "Images/punjabi-chicken.webp",
@@ -607,7 +731,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Veg Singapore Fried Rice": "Images/veg-singapore-fried-rice.webp",
 
 // Non-Vegetarian Fried Rice
-"Chicken Fried Rice": "Images/chicken-fried-rice.webp",
+"Chicken Fried Rice": "Images/chicken-fried-rice.jpg",
 "Chicken Schezwan Fried Rice": "Images/chicken-schezwan-fried-rice.webp",
 "Egg Fried Rice": "Images/egg-fried-rice.webp",
 "Kaju Chicken Fried Rice": "Images/kaju-chicken-fried-rice.webp",
@@ -616,7 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Singapore Chicken Fried Rice": "Images/singapore-chicken-fried-rice.webp",
 
 // Indian Breads & Paratha
-"Aloo Paratha": "Images/aloo-paratha.webp",
+"Aloo Paratha": "Images/aloo-paratha.jpg",
 "Butter Kulcha": "Images/butter-kulcha.webp",
 "Butter Naan": "Images/butter-naan.webp",
 "Butter Roti": "Images/butter-roti.webp",
@@ -649,7 +773,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Veg Pulao": "Images/veg-pulao.png",
 
 // Non Veg Biryani
-"Chicken 65 Briyani": "Images/chicken-65-briyani.webp",
+"Chicken 65 Briyani": "Images/chicken-65-briyani.jpg",
 "Chicken Dum Briyani": "Images/chicken-dum-briyani.webp",
 "Egg Briyani": "Images/egg-briyani.webp",
 "Fish Briyani": "Images/fish-briyani.png",
@@ -663,7 +787,7 @@ document.addEventListener("DOMContentLoaded", () => {
 "Mutton Mandhi": "Images/mutton-mandhi.png",
 
 // Noodles Veg & Nonveg
-"Chicken Noodles": "Images/chicken-noodles.webp",
+"Chicken Noodles": "Images/chicken-noodles.jpg",
 "Chicken Schezwan Noodles": "Images/chicken-schezwan-noodles.webp",
 "Chilli Garlic Chicken Noodles": "Images/chilli-garlic-chicken-noodles.webp",
 "Egg Soft Noodles": "Images/egg-soft-noodles.webp",
