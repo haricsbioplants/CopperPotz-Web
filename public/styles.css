@@ -5212,3 +5212,20 @@ body.gallery-open {
         width: 100%;
     }
 }
+
+
+#status {
+    display: block;
+    min-height: 20px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #17c259;
+    opacity: 1;
+    visibility: visible;
+}
+
+#status:empty {
+    display: none;
+} 

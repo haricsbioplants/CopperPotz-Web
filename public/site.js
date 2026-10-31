@@ -57,236 +57,88 @@ if (dateInput) {
 
 /* Copper Potz Contact Form - FormSubmit */
 
-const contactForm = document.querySelector("#contact-form");
+// const contactForm = document.querySelector("#contact-form");
 
-if (contactForm) {
-  const submitButton = contactForm.querySelector("#submit-button");
-  const buttonLabel = contactForm.querySelector("#button-label");
-  const status = contactForm.querySelector("#status");
+// if (contactForm) {
+//   const submitButton = contactForm.querySelector("#submit-button");
+//   const buttonLabel = contactForm.querySelector("#button-label");
+//   const status = contactForm.querySelector("#status");
 
-  const originalLabel = buttonLabel?.textContent || "Send message";
+//   const originalLabel = buttonLabel?.textContent || "Send message";
 
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+//   contactForm.addEventListener("submit", async (event) => {
+//     event.preventDefault();
 
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      return;
-    }
-
-    submitButton.disabled = true;
-    if (buttonLabel) buttonLabel.textContent = "Sending...";
-
-    status.textContent = "";
-    status.style.color = "#ffd0c9";
-
-    const startedAt = performance.now();
-
-    try {
-      const formData = new FormData(contactForm);
-      const payload = Object.fromEntries(formData.entries());
-
-      payload._subject =
-        `Copper Potz - Contact Message - ${new Date().toLocaleString("en-IN")}`;
-      payload._template = "table";
-
-      const response = await fetch(
-        "https://formsubmit.co/ajax/copperpotz24@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(payload)
-        }
-      );
-
-      const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
-      console.log(`FormSubmit request took ${elapsed} seconds.`);
-      console.log("HTTP status:", response.status);
-
-      const result = await response.json();
-      console.log("FormSubmit result:", result);
-
-      if (
-        !response.ok ||
-        String(result.success) !== "true"
-      ) {
-        throw new Error(
-          result.message || "The message could not be sent. Please try again."
-        );
-      }
-
-      status.style.color = "#bfe9ca";
-      status.textContent =
-        "Thank you! Your message has been sent successfully.";
-
-      contactForm.reset();
-
-    } catch (error) {
-      console.error("Contact form error:", error);
-
-      status.style.color = "#ffd0c9";
-      status.textContent =
-        error.message || "Unable to send your message. Please try again.";
-
-    } finally {
-      submitButton.disabled = false;
-      if (buttonLabel) buttonLabel.textContent = originalLabel;
-    }
-  });
-}
-
-// Copper Potz - Reservation Form Submission
-const reservationForm = document.querySelector("#reservation-form");
-
-if (reservationForm) {
-    const submitButton = reservationForm.querySelector("#submit-button");
-    const buttonLabel = reservationForm.querySelector("#button-label");
-    const status = reservationForm.querySelector("#status");
-
-    const originalLabel = buttonLabel.textContent;
-
-    reservationForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        // Validate required fields
-        if (!reservationForm.checkValidity()) {
-            reservationForm.reportValidity();
-            return;
-        }
-
-        // Prevent duplicate submissions
-        if (submitButton.disabled) return;
-
-        submitButton.disabled = true;
-        buttonLabel.textContent = "Sending...";
-        status.textContent = "";
-        status.style.color = "#ffd0c9";
-
-        try {
-            const formData = new FormData(reservationForm);
-            const payload = Object.fromEntries(formData.entries());
-
-            payload._subject = `Copper Potz - Table Reservation - ${new Date().toLocaleString("en-IN")}`;
-            payload._template = "table";
-
-            const response = await fetch(
-                "https://formsubmit.co/ajax/copperpotz24@gmail.com",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(payload)
-                }
-            );
-
-            const result = await response.json();
-
-            console.log("Reservation response:", response.status, result);
-
-            if (!response.ok || String(result.success) !== "true") {
-                throw new Error(
-                    result.message || "Unable to send your reservation request."
-                );
-            }
-
-            status.style.color = "#bfe9ca";
-            status.textContent =
-                "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
-
-            reservationForm.reset();
-
-        } catch (error) {
-            console.error("Reservation form error:", error);
-
-            status.style.color = "#ffd0c9";
-            status.textContent =
-                "We couldn't confirm submission. Please check your email before trying again, as your request may still have been delivered.";
-
-        } finally {
-            submitButton.disabled = false;
-            buttonLabel.textContent = originalLabel;
-        }
-    });
-}
-
-/* ==========================================
-   COPPER POTZ - EMAILJS FORM INTEGRATION
-========================================== */
-
-// async function sendCopperPotzEmail({
-//     form,
-//     submitButton,
-//     buttonLabel,
-//     status,
-//     templateId,
-//     successMessage
-// }) {
-//     if (!form.checkValidity()) {
-//         form.reportValidity();
-//         return;
-//     }
-
-//     if (submitButton.disabled) return;
-
-//     if (typeof emailjs === "undefined") {
-//         status.textContent = "Email service is not available. Please try again later.";
-//         status.style.color = "#ffd0c9";
-//         return;
+//     if (!contactForm.checkValidity()) {
+//       contactForm.reportValidity();
+//       return;
 //     }
 
 //     submitButton.disabled = true;
-
-//     const originalLabel = buttonLabel?.textContent || "Submit";
 //     if (buttonLabel) buttonLabel.textContent = "Sending...";
 
 //     status.textContent = "";
 //     status.style.color = "#ffd0c9";
 
+//     const startedAt = performance.now();
+
 //     try {
-//         const formData = new FormData(form);
-//         const templateParams = Object.fromEntries(formData.entries());
+//       const formData = new FormData(contactForm);
+//       const payload = Object.fromEntries(formData.entries());
 
-//         // Add submission details
-//         templateParams.submission_date =
-//             new Date().toLocaleString("en-IN");
+//       payload._subject =
+//         `Copper Potz - Contact Message - ${new Date().toLocaleString("en-IN")}`;
+//       payload._template = "table";
 
-//         await emailjs.send(
-//             EMAIL_CONFIG.serviceId,
-//             templateId,
-//             templateParams
+//       const response = await fetch(
+//         "https://formsubmit.co/ajax/copperpotz24@gmail.com",
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//           },
+//           body: JSON.stringify(payload)
+//         }
+//       );
+
+//       const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
+//       console.log(`FormSubmit request took ${elapsed} seconds.`);
+//       console.log("HTTP status:", response.status);
+
+//       const result = await response.json();
+//       console.log("FormSubmit result:", result);
+
+//       if (
+//         !response.ok ||
+//         String(result.success) !== "true"
+//       ) {
+//         throw new Error(
+//           result.message || "The message could not be sent. Please try again."
 //         );
+//       }
 
-//         status.style.color = "#bfe9ca";
-//         status.textContent = successMessage;
+//       status.style.color = "#bfe9ca";
+//       status.textContent =
+//         "Thank you! Your message has been sent successfully.";
 
-//         form.reset();
+//       contactForm.reset();
 
 //     } catch (error) {
-//         console.error("Copper Potz email error:", error);
+//       console.error("Contact form error:", error);
 
-//         status.style.color = "#ffd0c9";
-//         status.textContent =
-//             "We couldn't send your request. Please try again or contact the restaurant directly.";
+//       status.style.color = "#ffd0c9";
+//       status.textContent =
+//         error.message || "Unable to send your message. Please try again.";
 
 //     } finally {
-//         submitButton.disabled = false;
-
-//         if (buttonLabel) {
-//             buttonLabel.textContent = originalLabel;
-//         }
+//       submitButton.disabled = false;
+//       if (buttonLabel) buttonLabel.textContent = originalLabel;
 //     }
+//   });
 // }
 
-
-/* ==========================================
-   1. TABLE RESERVATION FORM
-========================================== */
-
+// // Copper Potz - Reservation Form Submission
 // const reservationForm = document.querySelector("#reservation-form");
 
 // if (reservationForm) {
@@ -294,49 +146,278 @@ if (reservationForm) {
 //     const buttonLabel = reservationForm.querySelector("#button-label");
 //     const status = reservationForm.querySelector("#status");
 
+//     const originalLabel = buttonLabel.textContent;
+
 //     reservationForm.addEventListener("submit", async (event) => {
 //         event.preventDefault();
 
-//         await sendCopperPotzEmail({
-//             form: reservationForm,
-//             submitButton,
-//             buttonLabel,
-//             status,
-//             templateId: EMAIL_CONFIG.templates.reservation,
+//         // Validate required fields
+//         if (!reservationForm.checkValidity()) {
+//             reservationForm.reportValidity();
+//             return;
+//         }
 
-//             successMessage:
-//                 "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability."
-//         });
+//         // Prevent duplicate submissions
+//         if (submitButton.disabled) return;
+
+//         submitButton.disabled = true;
+//         buttonLabel.textContent = "Sending...";
+//         status.textContent = "";
+//         status.style.color = "#ffd0c9";
+
+//         try {
+//             const formData = new FormData(reservationForm);
+//             const payload = Object.fromEntries(formData.entries());
+
+//             payload._subject = `Copper Potz - Table Reservation - ${new Date().toLocaleString("en-IN")}`;
+//             payload._template = "table";
+
+//             const response = await fetch(
+//                 "https://formsubmit.co/ajax/copperpotz24@gmail.com",
+//                 {
+//                     method: "POST",
+//                     headers: {
+//                         "Content-Type": "application/json",
+//                         "Accept": "application/json"
+//                     },
+//                     body: JSON.stringify(payload)
+//                 }
+//             );
+
+//             const result = await response.json();
+
+//             console.log("Reservation response:", response.status, result);
+
+//             if (!response.ok || String(result.success) !== "true") {
+//                 throw new Error(
+//                     result.message || "Unable to send your reservation request."
+//                 );
+//             }
+
+//             status.style.color = "#bfe9ca";
+//             status.textContent =
+//                 "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability.";
+
+//             reservationForm.reset();
+
+//         } catch (error) {
+//             console.error("Reservation form error:", error);
+
+//             status.style.color = "#ffd0c9";
+//             status.textContent =
+//                 "We couldn't confirm submission. Please check your email before trying again, as your request may still have been delivered.";
+
+//         } finally {
+//             submitButton.disabled = false;
+//             buttonLabel.textContent = originalLabel;
+//         }
 //     });
 // }
+
+/* ==========================================
+   COPPER POTZ - EMAILJS FORM INTEGRATION
+========================================== */
+
+
+
+function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+async function sendCopperPotzEmail({
+    form,
+    submitButton,
+    buttonLabel,
+    status,
+    templateId,
+    successMessage,
+    enquiryType
+}) {
+    if (!form || !submitButton || !buttonLabel || !status) return;
+
+    if (
+        typeof emailjs === "undefined" ||
+        !EMAIL_CONFIG.publicKey ||
+        !EMAIL_CONFIG.serviceId ||
+        !templateId
+    ) {
+        console.error("EmailJS configuration is missing.", {
+            sdkAvailable: typeof emailjs !== "undefined",
+            serviceId: EMAIL_CONFIG?.serviceId,
+            templateId,
+            publicKeyConfigured: Boolean(EMAIL_CONFIG?.publicKey)
+        });
+
+        status.textContent =
+            "Email service is temporarily unavailable. Please try again later.";
+        status.style.color = "#b42318";
+        return;
+    }
+
+    const originalLabel = buttonLabel.textContent;
+
+    submitButton.disabled = true;
+    buttonLabel.textContent = "Sending...";
+    status.textContent = "";
+
+    try {
+        const formData = new FormData(form);
+        const templateParams = Object.fromEntries(formData.entries());
+
+        // Use the enquiry type passed by the individual form handler
+        templateParams.enquiry_type = enquiryType;
+
+        // Add banquet details only for banquet enquiries
+        const isBanquet = enquiryType === "Banquet Enquiry";
+
+        templateParams.event_details_html = isBanquet
+            ? `
+                <div style="border:1px solid #e9e2d5;border-radius:10px;overflow:hidden;margin-bottom:20px;">
+                    <div style="background:#f8f5ed;padding:15px 18px;border-bottom:1px solid #e9e2d5;">
+                        <h3 style="margin:0;font-size:15px;color:#263e2e;">
+                            Banquet Event Details
+                        </h3>
+                    </div>
+
+                    <div style="padding:18px;">
+                        <p style="margin:8px 0;color:#505850;font-size:14px;">
+                            <strong>Event Type:</strong>
+                            ${escapeHtml(templateParams.event_type)}
+                        </p>
+
+                        <p style="margin:8px 0;color:#505850;font-size:14px;">
+                            <strong>Event Date:</strong>
+                            ${escapeHtml(templateParams.event_date)}
+                        </p>
+
+                        <p style="margin:8px 0;color:#505850;font-size:14px;">
+                            <strong>Expected Guests:</strong>
+                            ${escapeHtml(templateParams.expected_guests)}
+                        </p>
+                    </div>
+                </div>
+            `
+            : "";
+
+        console.log("EMAIL DEBUG:", {
+            formId: form.id,
+            templateId: templateId,
+            enquiryType: templateParams.enquiry_type,
+            name: templateParams.name,
+            eventType: templateParams.event_type,
+            eventDate: templateParams.event_date,
+            expectedGuests: templateParams.expected_guests,
+            eventDetailsHTML: templateParams.event_details_html
+        });
+
+        const response = await emailjs.send(
+            EMAIL_CONFIG.serviceId,
+            templateId,
+            templateParams
+        );
+
+        console.log("EmailJS success:", response);
+
+        if (response.status === 200) {
+            status.textContent = successMessage;
+            status.style.setProperty("color", "#c2f1d4", "important");
+            status.style.setProperty("display", "block", "important");
+            status.style.setProperty("visibility", "visible", "important");
+            status.style.setProperty("opacity", "1", "important");
+
+            form.reset();
+        } else {
+            throw new Error("Unexpected EmailJS response.");
+        }
+
+    } catch (error) {
+        console.error("EmailJS error details:", {
+            status: error.status,
+            text: error.text,
+            message: error.message,
+            error
+        });
+
+        status.textContent =
+            "Unable to send your request. Please try again or contact us directly.";
+
+        status.style.color = "#b42318";
+
+    } finally {
+        submitButton.disabled = false;
+        buttonLabel.textContent = originalLabel;
+    }
+}
+
+
+
+/* ==========================================
+   1. TABLE RESERVATION FORM
+========================================== */
+
+
+
+const reservationForm = document.querySelector("#reservation-form");
+
+if (reservationForm) {
+    const submitButton = reservationForm.querySelector("#submit-button");
+    const buttonLabel = reservationForm.querySelector("#button-label");
+    const status = reservationForm.querySelector("#status");
+
+    reservationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        sendCopperPotzEmail({
+            form: reservationForm,
+            submitButton,
+            buttonLabel,
+            status,
+            templateId: EMAIL_CONFIG.templates.reservation,
+            successMessage:
+                "Thank you! Your reservation request has been sent. The restaurant will contact you to confirm availability."
+        });
+    });
+}
+
 
 
 /* ==========================================
    2. CONTACT FORM
 ========================================== */
 
-// const contactForm = document.querySelector("#contact-form");
 
-// if (contactForm) {
-//     const submitButton = contactForm.querySelector("#submit-button");
-//     const buttonLabel = contactForm.querySelector("#button-label");
-//     const status = contactForm.querySelector("#status");
 
-//     contactForm.addEventListener("submit", async (event) => {
-//         event.preventDefault();
 
-//         await sendCopperPotzEmail({
-//             form: contactForm,
-//             submitButton,
-//             buttonLabel,
-//             status,
-//             templateId: EMAIL_CONFIG.templates.contact,
+const contactForm = document.querySelector("#contact-form");
 
-//             successMessage:
-//                 "Thank you! Your message has been sent successfully."
-//         });
-//     });
-// }
+if (contactForm) {
+    const submitButton = contactForm.querySelector("#submit-button");
+    const buttonLabel = contactForm.querySelector("#button-label");
+    const status = contactForm.querySelector("#status");
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        await sendCopperPotzEmail({
+            form: contactForm,
+            submitButton,
+            buttonLabel,
+            status,
+            templateId: EMAIL_CONFIG.templates.contact,
+            enquiryType: "Contact Us",
+            successMessage:
+                "Thank you! Your message has been sent successfully. We will get back to you soon."
+        });
+    });
+}
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {

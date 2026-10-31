@@ -393,8 +393,8 @@
                     </div>
                 </div>
 
-                <form class="banquet-enquiry-form form-box" action="https://formsubmit.co/copperpotz24@gmail.com"
-                    method="POST" id="banquet-form">
+                <form class="banquet-enquiry-form form-box" id="banquet-form">
+                    <input type="hidden" name="enquiry_type" value="Banquet Enquiry">
                     <h3>Banquet Enquiry</h3>
 
                     <div class="banquet-form-grid">
@@ -511,6 +511,19 @@
     <script src="./email-config.js"></script>
     <script src="site.js"></script>
     <script src="banquet.js"></script>
+    <script>
+        // Prevent selecting past dates in the banquet form
+        const banquetDate = document.querySelector("#banquet-date");
+
+        if (banquetDate) {
+            const today = new Date();
+            const localDate = new Date(
+                today.getTime() - today.getTimezoneOffset() * 60000
+            ).toISOString().split("T")[0];
+
+            banquetDate.min = localDate;
+        }
+    </script>
 
 </body>
 

@@ -1,13 +1,13 @@
 // Copper Potz - EmailJS Configuration
 
 const EMAIL_CONFIG = {
-    publicKey: "YOUR_PUBLIC_KEY",
-    serviceId: "YOUR_SERVICE_ID",
+    publicKey: "a2iDrqKK--tss4Nxk",
+    serviceId: "service_lyxbu64",
 
     templates: {
-        reservation: "YOUR_RESERVATION_TEMPLATE_ID",
-        contact: "YOUR_CONTACT_TEMPLATE_ID",
-        banquet: "YOUR_BANQUET_TEMPLATE_ID"
+        reservation: "template_camktgc",
+        contact: "template_r8wnyod",
+        banquet: "template_on1dxkv"
     }
 };
 

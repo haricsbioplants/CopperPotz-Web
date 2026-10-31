@@ -76,10 +76,7 @@
                                     hours</strong><br>Daily · 06:00 PM–11:00 PM<br></span></div>
                     </div>
                 </div>
-                <form action="https://formsubmit.co/copperpotz24@gmail.com" method="POST" class="form-box"
-                    id="reservation-form">
-                    <input type="hidden" name="_subject" value="New Table Reservation - Copper Potz">
-                    <input type="hidden" name="_template" value="table">
+                <form class="form-box" id="reservation-form">
                     <h3 style="margin:0 0 22px;font-size:27px">Request a table</h3>
                     <div class="form-grid">
                         <div class="field"><label for="name">Your name *</label><input id="name" name="name"
@@ -100,8 +97,10 @@
                                 <option>6 guests</option>
                                 <option>7+ guests</option>
                             </select></div>
-                        <div class="field"><label for="date">Preferred date *</label><input id="date" name="date"
-                                type="date" required></div>
+                        <div class="field">
+                            <label for="date">Preferred date *</label>
+                            <input id="date" name="date" type="date" required>
+                        </div>
                         <div class="field"><label for="time">Preferred time *</label><select id="time" name="time"
                                 required>
                                 <option value="">Select time</option>
@@ -184,6 +183,19 @@
     </footer>
     <script src="./email-config.js"></script>
     <script src="site.js"></script>
+    <script>
+        const reservationDate = document.querySelector("#reservation-form #date");
+
+        if (reservationDate) {
+            const today = new Date();
+
+            const localDate = new Date(
+                today.getTime() - today.getTimezoneOffset() * 60000
+            ).toISOString().split("T")[0];
+
+            reservationDate.min = localDate;
+        }
+    </script>
 </body>
 
 </html>
