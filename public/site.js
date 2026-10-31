@@ -247,12 +247,12 @@ async function sendCopperPotzEmail({
         !EMAIL_CONFIG.serviceId ||
         !templateId
     ) {
-        console.error("EmailJS configuration is missing.", {
-            sdkAvailable: typeof emailjs !== "undefined",
-            serviceId: EMAIL_CONFIG?.serviceId,
-            templateId,
-            publicKeyConfigured: Boolean(EMAIL_CONFIG?.publicKey)
-        });
+        // console.error("EmailJS configuration is missing.", {
+        //     sdkAvailable: typeof emailjs !== "undefined",
+        //     serviceId: EMAIL_CONFIG?.serviceId,
+        //     templateId,
+        //     publicKeyConfigured: Boolean(EMAIL_CONFIG?.publicKey)
+        // });
 
         status.textContent =
             "Email service is temporarily unavailable. Please try again later.";
@@ -305,16 +305,16 @@ async function sendCopperPotzEmail({
             `
             : "";
 
-        console.log("EMAIL DEBUG:", {
-            formId: form.id,
-            templateId: templateId,
-            enquiryType: templateParams.enquiry_type,
-            name: templateParams.name,
-            eventType: templateParams.event_type,
-            eventDate: templateParams.event_date,
-            expectedGuests: templateParams.expected_guests,
-            eventDetailsHTML: templateParams.event_details_html
-        });
+        // console.log("EMAIL DEBUG:", {
+        //     formId: form.id,
+        //     templateId: templateId,
+        //     enquiryType: templateParams.enquiry_type,
+        //     name: templateParams.name,
+        //     eventType: templateParams.event_type,
+        //     eventDate: templateParams.event_date,
+        //     expectedGuests: templateParams.expected_guests,
+        //     eventDetailsHTML: templateParams.event_details_html
+        // });
 
         const response = await emailjs.send(
             EMAIL_CONFIG.serviceId,
@@ -322,7 +322,7 @@ async function sendCopperPotzEmail({
             templateParams
         );
 
-        console.log("EmailJS success:", response);
+        // console.log("EmailJS success:", response);
 
         if (response.status === 200) {
             status.textContent = successMessage;
@@ -337,12 +337,12 @@ async function sendCopperPotzEmail({
         }
 
     } catch (error) {
-        console.error("EmailJS error details:", {
-            status: error.status,
-            text: error.text,
-            message: error.message,
-            error
-        });
+        // console.error("EmailJS error details:", {
+        //     status: error.status,
+        //     text: error.text,
+        //     message: error.message,
+        //     error
+        // });
 
         status.textContent =
             "Unable to send your request. Please try again or contact us directly.";
